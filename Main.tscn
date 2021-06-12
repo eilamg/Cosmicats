@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://star/Star.tscn" type="PackedScene" id=1]
+[ext_resource path="res://constellations/StarMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://constellations/Constellation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://static_art/fg.png" type="Texture" id=3]
 [ext_resource path="res://static_art/sky.png" type="Texture" id=4]
@@ -29,53 +29,64 @@ __meta__ = {
 
 [node name="Stars" type="CanvasLayer" parent="."]
 
-[node name="Fish" type="Node2D" parent="Stars"]
-position = Vector2( 1366.64, 161.996 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Constellations" type="CanvasLayer" parent="."]
+layer = 2
 
-[node name="Star" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( -129.904, 52.7639 )
+[node name="Fish" parent="Constellations" instance=ExtResource( 2 )]
+position = Vector2( 602.075, 851.632 )
+visibility_flags = 2
 
-[node name="Star2" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( -61.5245, 37.3042 )
+[node name="StarMarker" parent="Constellations/Fish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
+position = Vector2( 142.434, -70.8731 )
 
-[node name="Star3" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( -97.7953, -27.5076 )
+[node name="StarMarker2" parent="Constellations/Fish/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
+position = Vector2( 144.954, 32.4404 )
 
-[node name="Star4" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( -34.1726, 84.2779 )
+[node name="StarMarker3" parent="Constellations/Fish/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
+position = Vector2( 105.266, 1.57227 )
 
-[node name="Star5" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( -25.8481, -39.9943 )
+[node name="StarMarker4" parent="Constellations/Fish/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
+position = Vector2( -130.339, 53.2291 )
 
-[node name="Star6" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( -11.5778, 26.6013 )
+[node name="StarMarker5" parent="Constellations/Fish/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
+position = Vector2( -96.321, -25.516 )
 
-[node name="Star7" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( 3.28735, 77.7372 )
+[node name="StarMarker6" parent="Constellations/Fish/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
+position = Vector2( -34.5849, 85.3571 )
 
-[node name="Star8" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( 46.0988, 62.8722 )
+[node name="StarMarker7" parent="Constellations/Fish/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
+position = Vector2( -27.0254, -42.5249 )
 
-[node name="Star9" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( 34.8013, 18.2769 )
+[node name="StarMarker8" parent="Constellations/Fish/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
+position = Vector2( 2.58276, 77.7975 )
 
-[node name="Star10" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( 18.7471, -50.1025 )
+[node name="StarMarker9" parent="Constellations/Fish/Axis/StarMarkers" index="8" instance=ExtResource( 1 )]
+position = Vector2( 18.3318, -49.4545 )
 
-[node name="Star11" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( 102.586, 2.22266 )
+[node name="StarMarker10" parent="Constellations/Fish/Axis/StarMarkers" index="9" instance=ExtResource( 1 )]
+position = Vector2( 47.3099, 62.6785 )
 
-[node name="Star12" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( 143.019, 32.5474 )
+[node name="Shape" parent="Constellations/Fish/Axis/Area" index="0"]
+shape = SubResource( 1 )
 
-[node name="Star13" parent="Stars/Fish" instance=ExtResource( 1 )]
-position = Vector2( 142.425, -69.1298 )
+[node name="Stars" parent="Constellations/Fish/Axis" index="2"]
+texture = ExtResource( 6 )
+
+[node name="Silhouette" parent="Constellations/Fish/Axis" index="3"]
+visible = true
+texture = ExtResource( 9 )
+
+[node name="Skeleton" parent="Constellations/Fish/Axis" index="4"]
+position = Vector2( 7, 7.5 )
+texture = ExtResource( 8 )
+
+[node name="Art" parent="Constellations/Fish/Axis" index="5"]
+visible = false
+modulate = Color( 0.215686, 0.658824, 0.619608, 1 )
+texture = ExtResource( 7 )
 
 [node name="Foreground" type="CanvasLayer" parent="."]
-layer = 2
+layer = 3
 
 [node name="bg" type="Sprite" parent="Foreground"]
 visible = false
@@ -93,30 +104,5 @@ centered = false
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Constellations" type="CanvasLayer" parent="."]
-layer = 3
-
-[node name="Fish" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( 602.075, 851.632 )
-visibility_flags = 2
-
-[node name="Shape" parent="Constellations/Fish/Axis/Area" index="0"]
-shape = SubResource( 1 )
-
-[node name="Stars" parent="Constellations/Fish/Axis" index="1"]
-texture = ExtResource( 6 )
-
-[node name="Silhouette" parent="Constellations/Fish/Axis" index="2"]
-visible = true
-texture = ExtResource( 9 )
-
-[node name="Skeleton" parent="Constellations/Fish/Axis" index="3"]
-texture = ExtResource( 8 )
-
-[node name="Art" parent="Constellations/Fish/Axis" index="4"]
-visible = false
-modulate = Color( 0.215686, 0.658824, 0.619608, 1 )
-texture = ExtResource( 7 )
 
 [editable path="Constellations/Fish"]

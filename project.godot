@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Constellation",
+"language": "GDScript",
+"path": "res://constellations/Constellation.gd"
+}, {
+"base": "Node2D",
+"class": "StarGroup",
+"language": "GDScript",
+"path": "res://constellations/StarGroup.gd"
+} ]
+_global_script_class_icons={
+"Constellation": "",
+"StarGroup": ""
+}
+
 [application]
 
 config/name="GMTKGJ2021"
