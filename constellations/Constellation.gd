@@ -1,5 +1,6 @@
 tool
 extends Node2D
+class_name Constellation
 
 
 var _is_ready = false
@@ -47,7 +48,6 @@ func _on_input_event(viewport, event, shape_idx):
                         dragging = true
                     BUTTON_RIGHT:
                         angle_offset = axis.get_angle_to(get_global_mouse_position())
-                        print(angle_offset)
                         spinning = not(spinning)
             else:
                 dragging = false
@@ -68,3 +68,10 @@ func _physics_process(delta):
 
 func mirror():
     axis.scale.x *= -1
+
+
+func get_star_positions():
+    var star_positions = []
+    for star in $Axis/StarMarkers.get_children():
+        star_positions.append(star.position)
+    return star_positions
