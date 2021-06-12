@@ -1,36 +1,130 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://constellations/StarMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://constellations/Constellation.tscn" type="PackedScene" id=2]
-[ext_resource path="res://static_art/fg.png" type="Texture" id=3]
-[ext_resource path="res://static_art/sky.png" type="Texture" id=4]
-[ext_resource path="res://static_art/bg.png" type="Texture" id=5]
+[ext_resource path="res://static_art/0_bg_stars.png" type="Texture" id=3]
+[ext_resource path="res://static_art/0_sky.png" type="Texture" id=4]
+[ext_resource path="res://static_art/5_cats.png" type="Texture" id=5]
 [ext_resource path="res://constellations/fish/stars.png" type="Texture" id=6]
 [ext_resource path="res://constellations/fish/art.png" type="Texture" id=7]
 [ext_resource path="res://constellations/fish/skeleton.png" type="Texture" id=8]
 [ext_resource path="res://constellations/fish/silhouette.png" type="Texture" id=9]
 [ext_resource path="res://Main.gd" type="Script" id=10]
+[ext_resource path="res://Camera.gd" type="Script" id=11]
+[ext_resource path="res://static_art/1_bg.png" type="Texture" id=12]
+[ext_resource path="res://static_art/4_mg3.png" type="Texture" id=13]
+[ext_resource path="res://static_art/2_mg1.png" type="Texture" id=14]
+[ext_resource path="res://static_art/3_mg2.png" type="Texture" id=15]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 148.146, 80.3629 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 10 )
 
-[node name="Sky" type="CanvasLayer" parent="."]
-layer = 0
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 3840
+limit_bottom = 1080
+smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource( 11 )
 
-[node name="sky" type="Sprite" parent="Sky"]
-texture = ExtResource( 4 )
-centered = false
+[node name="LeftMargin" type="Control" parent="Camera"]
+margin_right = 200.0
+margin_bottom = 1080.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 __meta__ = {
-"_edit_lock_": true
+"_edit_use_anchors_": false
 }
 
-[node name="Stars" type="CanvasLayer" parent="."]
+[node name="RightMargin" type="Control" parent="Camera"]
+margin_left = 1720.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Constellations" type="CanvasLayer" parent="."]
-layer = 2
+[node name="Parallax" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="Sky" type="ParallaxLayer" parent="Parallax"]
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="sky" type="Sprite" parent="Parallax/Sky"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="bg_stars" type="Sprite" parent="Parallax/Sky"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Stars" type="Node2D" parent="Parallax/Sky"]
+
+[node name="Bg0" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.85, 1 )
+motion_offset = Vector2( -190, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="bg" type="Sprite" parent="Parallax/Bg0"]
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Bg1" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.6, 1 )
+motion_offset = Vector2( -400, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="mg1" type="Sprite" parent="Parallax/Bg1"]
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Bg2" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.4, 1 )
+motion_offset = Vector2( -650, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="mg2" type="Sprite" parent="Parallax/Bg2"]
+texture = ExtResource( 15 )
+centered = false
+
+[node name="Bg3" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( 0.25, 1 )
+motion_offset = Vector2( -800, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="mg3" type="Sprite" parent="Parallax/Bg3"]
+texture = ExtResource( 13 )
+centered = false
+
+[node name="Cats" type="ParallaxLayer" parent="Parallax"]
+motion_scale = Vector2( -0.07, 1 )
+motion_offset = Vector2( -1030, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="cats" type="Sprite" parent="Parallax/Cats"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Constellations" type="Node2D" parent="."]
 
 [node name="Fish" parent="Constellations" instance=ExtResource( 2 )]
 position = Vector2( 602.075, 851.632 )
@@ -67,7 +161,7 @@ position = Vector2( 18.3318, -49.4545 )
 position = Vector2( 47.3099, 62.6785 )
 
 [node name="Shape" parent="Constellations/Fish/Axis/Area" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Stars" parent="Constellations/Fish/Axis" index="2"]
 texture = ExtResource( 6 )
@@ -85,24 +179,9 @@ visible = false
 modulate = Color( 0.215686, 0.658824, 0.619608, 1 )
 texture = ExtResource( 7 )
 
-[node name="Foreground" type="CanvasLayer" parent="."]
-layer = 3
-
-[node name="bg" type="Sprite" parent="Foreground"]
-visible = false
-position = Vector2( 228, 853 )
-texture = ExtResource( 5 )
-centered = false
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="fg" type="Sprite" parent="Foreground"]
-position = Vector2( 0, 545 )
-texture = ExtResource( 3 )
-centered = false
-__meta__ = {
-"_edit_lock_": true
-}
+[connection signal="mouse_entered" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_entered"]
+[connection signal="mouse_exited" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_exited"]
+[connection signal="mouse_entered" from="Camera/RightMargin" to="Camera" method="_on_RightMargin_mouse_entered"]
+[connection signal="mouse_exited" from="Camera/RightMargin" to="Camera" method="_on_RightMargin_mouse_exited"]
 
 [editable path="Constellations/Fish"]

@@ -11,14 +11,19 @@ func _ready():
 
 
 func spawn_star_groups():
-    var star_group = StarGroup.new($Constellations/Fish, Vector2(100 + randf() * 900, 100 + randf() * 500), randf() * PI, randf() > 0.5)
+    var star_group = StarGroup.new($Constellations/Fish, Vector2(200 + randf() * 3440, 200 + randf() * 400), randf() * PI, randf() > 0.5)
     star_group.name = 'Fish'
-    $Stars.add_child(star_group)
+    $Parallax/Sky/Stars.add_child(star_group)
 
 
 func spawn_random_stars():
-    for i in range(40):
+    for i in range(100):
         var s = Star.instance()
-        s.position = Vector2(randf() * 1920, 100 + randf() * 1080)
+        s.position = Vector2(randf() * 3840, 100 + randf() * 1080)
         s.name = 'Star'
-        $Stars.add_child(s)
+        $Parallax/Sky/Stars.add_child(s)
+
+
+func _input(event):
+    if event.is_action_pressed("toggle_fullscreen"):
+        OS.window_fullscreen = not(OS.window_fullscreen)
