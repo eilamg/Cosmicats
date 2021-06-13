@@ -144,13 +144,11 @@ anims/skeleton_to_art = SubResource( 3 )
 [node name="Shape" type="CollisionPolygon2D" parent="Axis/Area"]
 
 [node name="Silhouette" type="Sprite" parent="Axis"]
-self_modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 0.9, 0.9 )
 
 [node name="Skeleton" type="Sprite" parent="Axis"]
 
 [node name="Art" type="Sprite" parent="Axis"]
-self_modulate = Color( 1, 1, 1, 0 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )

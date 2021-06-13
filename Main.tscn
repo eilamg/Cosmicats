@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://constellations/StarMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://constellations/Constellation.tscn" type="PackedScene" id=2]
@@ -50,6 +50,12 @@
 [ext_resource path="res://music/MusicPlayer.gd" type="Script" id=48]
 [ext_resource path="res://static_art/title.png" type="Texture" id=49]
 [ext_resource path="res://static_art/instructions.png" type="Texture" id=50]
+[ext_resource path="res://constellations/shark/skeleton.png" type="Texture" id=51]
+[ext_resource path="res://constellations/shark/silhouette.png" type="Texture" id=52]
+[ext_resource path="res://constellations/shark/art.png" type="Texture" id=53]
+[ext_resource path="res://constellations/squid/silhouette.png" type="Texture" id=54]
+[ext_resource path="res://constellations/squid/art.png" type="Texture" id=55]
+[ext_resource path="res://constellations/squid/skeleton.png" type="Texture" id=56]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -854,6 +860,96 @@ texture = ExtResource( 34 )
 [node name="Art" parent="Constellations/Ship/Axis" index="4"]
 texture = ExtResource( 35 )
 
+[node name="Shark" parent="Constellations" instance=ExtResource( 2 )]
+position = Vector2( 669.167, -192.898 )
+
+[node name="StarMarker" parent="Constellations/Shark/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
+position = Vector2( 379.778, -31.3177 )
+
+[node name="StarMarker2" parent="Constellations/Shark/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
+position = Vector2( 176.361, 30.1312 )
+
+[node name="StarMarker3" parent="Constellations/Shark/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
+position = Vector2( 131.864, 150.91 )
+
+[node name="StarMarker4" parent="Constellations/Shark/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
+position = Vector2( 76.7717, 7.88245 )
+
+[node name="StarMarker5" parent="Constellations/Shark/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
+position = Vector2( 20.6201, -157.394 )
+
+[node name="StarMarker6" parent="Constellations/Shark/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
+position = Vector2( -11.1638, -15.4258 )
+
+[node name="StarMarker7" parent="Constellations/Shark/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
+position = Vector2( -272.851, 12.1203 )
+
+[node name="StarMarker8" parent="Constellations/Shark/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
+position = Vector2( -324.765, 76.7476 )
+
+[node name="StarMarker9" parent="Constellations/Shark/Axis/StarMarkers" index="8" instance=ExtResource( 1 )]
+position = Vector2( -393.63, -119.253 )
+
+[node name="StarMarker10" parent="Constellations/Shark/Axis/StarMarkers" index="9" instance=ExtResource( 1 )]
+position = Vector2( -141.478, -3.77161 )
+
+[node name="Shape" parent="Constellations/Shark/Axis/Area" index="0"]
+polygon = PoolVector2Array( -162.667, -49.3286, -22.8179, -65.2205, 8.966, -192.356, 122.329, -41.9123, 382.956, -52.5069, 111.734, 173.159, -41.8882, 62.9745, -228.354, 59.7961, -298.278, 96.8774, -390.452, -126.669, -321.586, -129.848 )
+
+[node name="Silhouette" parent="Constellations/Shark/Axis" index="2"]
+texture = ExtResource( 52 )
+
+[node name="Skeleton" parent="Constellations/Shark/Axis" index="3"]
+texture = ExtResource( 51 )
+
+[node name="Art" parent="Constellations/Shark/Axis" index="4"]
+texture = ExtResource( 53 )
+
+[node name="Squid" parent="Constellations" instance=ExtResource( 2 )]
+position = Vector2( 1439.25, -225.271 )
+
+[node name="StarMarker" parent="Constellations/Squid/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
+position = Vector2( -194.518, -113.137 )
+
+[node name="StarMarker2" parent="Constellations/Squid/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
+position = Vector2( -188.963, -59.1657 )
+
+[node name="StarMarker3" parent="Constellations/Squid/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
+position = Vector2( -102.449, -101.232 )
+
+[node name="StarMarker4" parent="Constellations/Squid/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
+position = Vector2( 19.7806, 58.3019 )
+
+[node name="StarMarker5" parent="Constellations/Squid/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
+position = Vector2( 58.6719, 19.4106 )
+
+[node name="StarMarker6" parent="Constellations/Squid/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
+position = Vector2( 92.0072, 82.1129 )
+
+[node name="StarMarker7" parent="Constellations/Squid/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
+position = Vector2( 154.709, 74.9696 )
+
+[node name="StarMarker8" parent="Constellations/Squid/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
+position = Vector2( 208.681, 108.305 )
+
+[node name="StarMarker9" parent="Constellations/Squid/Axis/StarMarkers" index="8" instance=ExtResource( 1 )]
+position = Vector2( 175.346, 127.354 )
+
+[node name="StarMarker10" parent="Constellations/Squid/Axis/StarMarkers" index="9" instance=ExtResource( 1 )]
+position = Vector2( -142.928, -79.802 )
+
+[node name="Shape" parent="Constellations/Squid/Axis/Area" index="0"]
+polygon = PoolVector2Array( -181.304, -20.577, -207.733, -99.8625, -186.967, -127.235, -122.784, -107.413, -82.1974, -115.908, 216.067, 84.193, 207.572, 119.116, 143.389, 139.882, 116.96, 113.453, -13.2946, 68.1472 )
+
+[node name="Silhouette" parent="Constellations/Squid/Axis" index="2"]
+texture = ExtResource( 54 )
+
+[node name="Skeleton" parent="Constellations/Squid/Axis" index="3"]
+texture = ExtResource( 56 )
+
+[node name="Art" parent="Constellations/Squid/Axis" index="4"]
+texture = ExtResource( 55 )
+
 [node name="ParallaxFG" type="ParallaxBackground" parent="."]
 layer = 1
 
@@ -939,3 +1035,5 @@ texture = ExtResource( 49 )
 [editable path="Constellations/SchoolOfFish"]
 [editable path="Constellations/Jellyfish"]
 [editable path="Constellations/Ship"]
+[editable path="Constellations/Shark"]
+[editable path="Constellations/Squid"]
