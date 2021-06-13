@@ -16,6 +16,9 @@ func _ready():
     spawn_star_groups()
     hide_away_constellations()
     $MusicPlayer.add_layer()
+
+    $AnimationPlayer.play("intro")
+
     # spawn_random_stars(100)
 
 

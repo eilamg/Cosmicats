@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://constellations/StarMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://constellations/Constellation.tscn" type="PackedScene" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://music/CosmicCatsIsoLoop4.ogg" type="AudioStream" id=46]
 [ext_resource path="res://music/CosmicCatsIsoLoop6.ogg" type="AudioStream" id=47]
 [ext_resource path="res://music/MusicPlayer.gd" type="Script" id=48]
+[ext_resource path="res://icon.png" type="Texture" id=49]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -57,6 +58,124 @@ noise = SubResource( 1 )
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 6 )
 shader_param/noise_texture = SubResource( 2 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "intro"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credits:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 2.5, 4.5, 6.5 ),
+"transitions": PoolRealArray( 1, 2, 1, -2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 6.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "lights_out" ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "lights_on"
+length = 2.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ParallaxBG/Sky/sky_light:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 2.3 ),
+"transitions": PoolRealArray( 1, 2.07053, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ParallaxBG/Sky/bg_stars_light:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ParallaxBG/Bg0/bg_light:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ParallaxBG/Bg1/mg1_light:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ParallaxBG/Bg2/mg2_light:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ParallaxBG/Bg3/mg3_light:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ParallaxFG/Cats/cats_light:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.001, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "lights_out"
@@ -150,6 +269,7 @@ tracks/6/keys = {
 script = ExtResource( 10 )
 
 [node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 960, 0 )
 anchor_mode = 0
 current = true
 limit_left = 0
@@ -191,6 +311,7 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="sky_light" type="Sprite" parent="ParallaxBG/Sky"]
+self_modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 32 )
 centered = false
 
@@ -200,6 +321,7 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="bg_stars_light" type="Sprite" parent="ParallaxBG/Sky"]
+self_modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 3 )
 texture = ExtResource( 36 )
 centered = false
@@ -218,6 +340,7 @@ texture = ExtResource( 12 )
 centered = false
 
 [node name="bg_light" type="Sprite" parent="ParallaxBG/Bg0"]
+self_modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 37 )
 centered = false
 
@@ -233,6 +356,7 @@ texture = ExtResource( 14 )
 centered = false
 
 [node name="mg1_light" type="Sprite" parent="ParallaxBG/Bg1"]
+self_modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 38 )
 centered = false
 
@@ -248,6 +372,7 @@ texture = ExtResource( 15 )
 centered = false
 
 [node name="mg2_light" type="Sprite" parent="ParallaxBG/Bg2"]
+self_modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 39 )
 centered = false
 
@@ -263,6 +388,7 @@ texture = ExtResource( 13 )
 centered = false
 
 [node name="mg3_light" type="Sprite" parent="ParallaxBG/Bg3"]
+self_modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 40 )
 centered = false
 
@@ -689,6 +815,8 @@ margin_left = 961.085
 margin_right = 2881.08
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/intro = SubResource( 5 )
+anims/lights_on = SubResource( 6 )
 anims/lights_out = SubResource( 4 )
 
 [node name="MusicPlayer" type="Node" parent="."]
@@ -725,6 +853,12 @@ volume_db = -80.0
 autoplay = true
 
 [node name="Tween" type="Tween" parent="MusicPlayer"]
+
+[node name="Credits" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1904.88, 469.871 )
+scale = Vector2( 32.3512, 7.25039 )
+texture = ExtResource( 49 )
 
 [connection signal="mouse_entered" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_entered"]
 [connection signal="mouse_exited" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_exited"]
