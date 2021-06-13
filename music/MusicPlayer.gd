@@ -1,7 +1,11 @@
 extends Node
 
 onready var tween = $Tween
-onready var layers = [$Loop1, $Loop2, $Loop3, $Loop4, $Loop5, $Loop6]
+
+
+# loop1   loop2       null       loop3         null         loop4        loop5    null     loop6
+#     'Fish', 'Mermaid', 'Catfish', 'SchoolOfFish', 'Octopus', 'Jellyfish', 'Squid', 'Shark', 'Ship'
+onready var layers = [$Loop1, $Loop2, null, $Loop3, null, $Loop4, $Loop5, null, $Loop6]
 var current_layer = 0
 
 
@@ -11,9 +15,10 @@ func add_layer():
 
     var layer = layers[current_layer]
 
-    tween.interpolate_property(layer, "volume_db",
-        null, 0, 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-    tween.start()
+    if layer != null:
+        tween.interpolate_property(layer, "volume_db",
+            null, 0, 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+        tween.start()
     current_layer += 1
 
 
