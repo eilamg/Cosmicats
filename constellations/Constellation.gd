@@ -99,3 +99,7 @@ func align_with_stargroup(star_group):
 
 func _on_aligned():
     $AnimationPlayer.play("silhouette_to_skeleton")
+
+
+func fade_in():
+    $AnimationPlayer.play("silhouette_fade_in")
