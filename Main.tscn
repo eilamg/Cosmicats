@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://constellations/StarMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://constellations/Constellation.tscn" type="PackedScene" id=2]
@@ -28,6 +28,9 @@
 [ext_resource path="res://constellations/school_of_fish/silhouette.png" type="Texture" id=26]
 [ext_resource path="res://constellations/school_of_fish/skeleton.png" type="Texture" id=27]
 [ext_resource path="res://constellations/school_of_fish/art.png" type="Texture" id=28]
+[ext_resource path="res://constellations/jellyfish/silhouette.png" type="Texture" id=29]
+[ext_resource path="res://constellations/jellyfish/art.png" type="Texture" id=30]
+[ext_resource path="res://constellations/jellyfish/skeleton.png" type="Texture" id=31]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -52,6 +55,9 @@ extents = Vector2( 244.753, 96.0994 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( -270, -400, 350, 150, -50, 350, -250, -300 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 140, -200, 300, -200, 300, -20, 100, 200, -100, 220, -300, 80, -240, 20, 0, 0 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 10 )
@@ -168,12 +174,11 @@ position = Vector2( 2200, 690 )
 [node name="Dialogue" parent="Parallax/Cats" instance=ExtResource( 19 )]
 margin_left = 961.085
 margin_right = 2881.08
-dragger_visibility = 1
 
 [node name="Constellations" type="Node2D" parent="."]
 
 [node name="Fish" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( -350, 400 )
+position = Vector2( 2194.2, 205.113 )
 
 [node name="StarMarker" parent="Constellations/Fish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( -95.4075, 37.9393 )
@@ -225,7 +230,7 @@ texture = ExtResource( 8 )
 texture = ExtResource( 7 )
 
 [node name="Mermaid" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( -350, 400 )
+position = Vector2( 330.768, 416.018 )
 
 [node name="StarMarker" parent="Constellations/Mermaid/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( -193.525, -191.043 )
@@ -280,7 +285,7 @@ texture = ExtResource( 25 )
 texture = ExtResource( 24 )
 
 [node name="Catfish" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( -350, 400 )
+position = Vector2( 757.917, 293.213 )
 
 [node name="StarMarker" parent="Constellations/Catfish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( -74.5898, -118.771 )
@@ -320,7 +325,7 @@ texture = ExtResource( 21 )
 texture = ExtResource( 22 )
 
 [node name="Octopus" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( -350, 400 )
+position = Vector2( 2813.57, 266.516 )
 
 [node name="StarMarker" parent="Constellations/Octopus/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( 167.964, -69.5532 )
@@ -402,7 +407,7 @@ texture = ExtResource( 16 )
 texture = ExtResource( 18 )
 
 [node name="SchoolOfFish" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( -313.815, 398.97 )
+position = Vector2( 1765.87, 436.345 )
 
 [node name="StarMarker" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( -316.682, -335.41 )
@@ -477,6 +482,54 @@ texture = ExtResource( 27 )
 [node name="Art" parent="Constellations/SchoolOfFish/Axis" index="4"]
 texture = ExtResource( 28 )
 
+[node name="Jellyfish" parent="Constellations" instance=ExtResource( 2 )]
+position = Vector2( 3362.35, 434.629 )
+
+[node name="StarMarker" parent="Constellations/Jellyfish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
+position = Vector2( 129.889, -144.896 )
+
+[node name="StarMarker2" parent="Constellations/Jellyfish/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
+position = Vector2( 176.889, -179.896 )
+
+[node name="StarMarker3" parent="Constellations/Jellyfish/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
+position = Vector2( 249.889, -147.896 )
+
+[node name="StarMarker4" parent="Constellations/Jellyfish/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
+position = Vector2( 270.889, -88.8958 )
+
+[node name="StarMarker5" parent="Constellations/Jellyfish/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
+position = Vector2( 201.889, 9.10419 )
+
+[node name="StarMarker6" parent="Constellations/Jellyfish/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
+position = Vector2( 73.8894, 148.104 )
+
+[node name="StarMarker7" parent="Constellations/Jellyfish/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
+position = Vector2( 5.8894, 150.104 )
+
+[node name="StarMarker8" parent="Constellations/Jellyfish/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
+position = Vector2( -46.1106, 184.104 )
+
+[node name="StarMarker9" parent="Constellations/Jellyfish/Axis/StarMarkers" index="8" instance=ExtResource( 1 )]
+position = Vector2( -87.1106, 80.1042 )
+
+[node name="StarMarker10" parent="Constellations/Jellyfish/Axis/StarMarkers" index="9" instance=ExtResource( 1 )]
+position = Vector2( -159.111, 41.1042 )
+
+[node name="StarMarker11" parent="Constellations/Jellyfish/Axis/StarMarkers" index="10" instance=ExtResource( 1 )]
+position = Vector2( -249.111, 77.1042 )
+
+[node name="Shape" parent="Constellations/Jellyfish/Axis/Area" index="0"]
+shape = SubResource( 9 )
+
+[node name="Silhouette" parent="Constellations/Jellyfish/Axis" index="2"]
+texture = ExtResource( 29 )
+
+[node name="Skeleton" parent="Constellations/Jellyfish/Axis" index="3"]
+texture = ExtResource( 31 )
+
+[node name="Art" parent="Constellations/Jellyfish/Axis" index="4"]
+texture = ExtResource( 30 )
+
 [connection signal="mouse_entered" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_entered"]
 [connection signal="mouse_exited" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_exited"]
 [connection signal="mouse_entered" from="Camera/RightMargin" to="Camera" method="_on_RightMargin_mouse_entered"]
@@ -487,3 +540,4 @@ texture = ExtResource( 28 )
 [editable path="Constellations/Catfish"]
 [editable path="Constellations/Octopus"]
 [editable path="Constellations/SchoolOfFish"]
+[editable path="Constellations/Jellyfish"]
