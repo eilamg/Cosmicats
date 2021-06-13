@@ -520,6 +520,36 @@ texture = ExtResource( 30 )
 [node name="Ship" parent="Constellations" instance=ExtResource( 2 )]
 position = Vector2( 3231.38, 368.718 )
 
+[node name="StarMarker" parent="Constellations/Ship/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
+position = Vector2( -188.156, 191.018 )
+
+[node name="StarMarker2" parent="Constellations/Ship/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
+position = Vector2( 241.747, 125.915 )
+
+[node name="StarMarker3" parent="Constellations/Ship/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
+position = Vector2( 258.583, 215.712 )
+
+[node name="StarMarker4" parent="Constellations/Ship/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
+position = Vector2( -94.9922, 146.12 )
+
+[node name="StarMarker5" parent="Constellations/Ship/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
+position = Vector2( -68.0532, -172.66 )
+
+[node name="StarMarker6" parent="Constellations/Ship/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
+position = Vector2( 101.438, -62.6584 )
+
+[node name="StarMarker7" parent="Constellations/Ship/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
+position = Vector2( -71.4207, -122.149 )
+
+[node name="StarMarker8" parent="Constellations/Ship/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
+position = Vector2( -395.812, -232.15 )
+
+[node name="StarMarker9" parent="Constellations/Ship/Axis/StarMarkers" index="8" instance=ExtResource( 1 )]
+position = Vector2( 294.502, -43.5766 )
+
+[node name="StarMarker10" parent="Constellations/Ship/Axis/StarMarkers" index="9" instance=ExtResource( 1 )]
+position = Vector2( 448.279, -215.313 )
+
 [node name="Shape" parent="Constellations/Ship/Axis/Area" index="0"]
 polygon = PoolVector2Array( -266.026, 194.984, -150.113, 116.869, -116.095, -99.8378, -436.115, -223.31, -415.956, -266.147, -61.9185, -208.191, 174.947, -41.8814, 265.661, -83.4588, 449.609, -256.068, 487.407, -239.689, 353.855, -26.7624, 302.199, 252.94, -252.167, 221.442 )
 
