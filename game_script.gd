@@ -55,11 +55,11 @@ onready var game_script = [
         DialogueLine.new(alfred, "Are there any more up there?"),
     # Mermaid
         DialogueLine.new(alfred, "Look, it's one of those... what do the humans call them... mermaids?", true),
-    SignalEmitter.new("request_next_constellations"),  # mermaid appears here
         DialogueLine.new(xena, "A what?"),
         DialogueLine.new(alfred, "You know, that thing where it's like half human, half fish."),
         DialogueLine.new(xena, "...so, a fish that walks around on-"),
         DialogueLine.new(alfred, "No! Wrong halves! See, it's like that!"),
+    SignalEmitter.new("request_next_constellations"),  # mermaid appears here
     WaitHere.new(),  # wait for mermaid to be placed correctly
     # Cat Fish:
         DialogueLine.new(alfred, "Hmm... something is missing..."),
@@ -68,19 +68,24 @@ onready var game_script = [
         DialogueLine.new(xena, "A CATFISH!"),
         DialogueLine.new(alfred, "...is that even a thing?"),
         DialogueLine.new(xena, "Absolutely! See? Right there!"),
+    SignalEmitter.new("request_next_constellations"),  # catfish appears here
+    WaitHere.new(),  # wait for catfish to be placed correctly
         DialogueLine.new(alfred, "Are you sure about that?"),
         DialogueLine.new(xena, "Of course they would have cat fish. Can you imagine if humans didn't have us?"),
         DialogueLine.new(alfred, "True, they wouldn't know what to do with themselves."),
-    # After Finishing Mermaid and Catfish:
+    # School of Fish (Milky Way):
         DialogueLine.new(xena, "Look, there's even more of them over there!"),
+    SignalEmitter.new("request_next_constellations"),  # school of fish appears here
+    WaitHere.new(),  # wait for school of fish to be placed correctly
         DialogueLine.new(alfred, "Wow, it's like... an entire ocean kingdom in the sky!"),
         DialogueLine.new(xena, "Are they all fish though? Some of them look kinda... weird."),
-    # Milky Way:
         DialogueLine.new(alfred, "Look at that one! There's like... a zillion fish all swimming together."),
         DialogueLine.new(xena, "Wow... how many is a zillion?"),
         DialogueLine.new(alfred, "Umm... a lot?"),
     # Octopus:
         DialogueLine.new(xena, "Look at that one, it's got like... eight tails!"),
+    SignalEmitter.new("request_next_constellations"),  # octopus appears here
+    WaitHere.new(),  # wait for octopus to be placed correctly
         DialogueLine.new(alfred, "I... don't think those are tails."),
         DialogueLine.new(xena, "Well, what else would they be?"),
         DialogueLine.new(alfred, "They're like... nooodly legs. With suction thingies on the bottom. And a head."),
