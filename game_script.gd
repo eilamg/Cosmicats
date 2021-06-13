@@ -1,8 +1,8 @@
-extends HSplitContainer
+extends HBoxContainer
 
 
-onready var alfred = $cat1
-onready var xena = $cat2
+onready var alfred = $MarginContainer1/cat1
+onready var xena = $MarginContainer2/cat2
 var current_line_number = -1
 
 
@@ -93,6 +93,8 @@ onready var game_script = [
     # Jellyfish:
         DialogueLine.new(alfred, "Hey, you know what that one looks like?"),
         DialogueLine.new(xena, "...like that really ugly lamp your owner has? With all the shiny rocks hanging from it."),
+    SignalEmitter.new("request_next_constellations"),  # jellyfish appears here
+    WaitHere.new(),  # wait for jellyfish to be placed correctly
         DialogueLine.new(alfred, "What? No, it... well, kinda. But not that."),
         DialogueLine.new(alfred, "It looks like that gel blob stuff that humans make with those fruit chunks in it."),
         DialogueLine.new(xena, "Oh yeah... what do you think it tastes like?"),
