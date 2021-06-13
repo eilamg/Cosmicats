@@ -30,6 +30,10 @@ config/name="GMTKGJ2021"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [debug]
 
 settings/fps/force_fps=60

@@ -15,6 +15,7 @@ func _ready():
     $ParallaxFG/Cats/Dialogue.connect("request_next_constellations", self, "_on_constellations_requested")
     spawn_star_groups()
     hide_away_constellations()
+    $MusicPlayer.add_layer()
     # spawn_random_stars(100)
 
 
@@ -39,6 +40,7 @@ func spawn_star_groups():
         var star_group = StarGroup.new(constellation, constellation.position, constellation.axis.rotation, constellation.axis.scale.x == -1)
         star_group.name = constellation.name
         $ParallaxBG/Sky/Stars.add_child(star_group)
+        star_group.connect("correctly_positioned", $MusicPlayer, "_on_constellation_positioned")
 
 
 func spawn_random_stars(n):
