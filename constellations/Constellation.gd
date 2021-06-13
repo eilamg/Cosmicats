@@ -6,6 +6,7 @@ class_name Constellation
 signal constellation_finished
 
 onready var axis = $Axis
+onready var audio_player = $AudioStreamPlayer2D
 
 var controllable = true
 
@@ -57,7 +58,7 @@ func get_star_positions():
 
 
 func _on_correctly_positioned(star_group):
-    $AudioStreamPlayer2D.play()
+    audio_player.play(0)
     disable_player_control()
     align_with_stargroup(star_group)
 
