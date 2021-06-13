@@ -8,6 +8,7 @@ var current_line_number = -1
 
 signal request_next_constellations
 signal request_instructions
+signal request_lights_on
 
 
 class DialogueLine:
@@ -100,6 +101,8 @@ onready var game_script = [
     # Squid:
         DialogueLine.new(xena, "Oh, it's another one of those eight noodle head guys."),
         DialogueLine.new(alfred, "Mmm... no, this one is different. See? It only has six of them."),
+    SignalEmitter.new("request_next_constellations"),  # squid
+    WaitHere.new(),
         DialogueLine.new(xena, "Oh no! What happened to the other two?"),
         DialogueLine.new(alfred, "N-no... I mean... it's something different. Look, at the top of it's head. It has fins like a fish."),
         DialogueLine.new(xena, "So... a six tailed noodle head fish?"),
@@ -107,12 +110,14 @@ onready var game_script = [
     # Shark:
         DialogueLine.new(alfred, "W-woah, that one looks... kind scary..."),
         DialogueLine.new(xena, "What, scared of the big bad fish?"),
+    SignalEmitter.new("request_next_constellations"),  # shark
+    WaitHere.new(),
         DialogueLine.new(alfred, "No way that's just a fish! Just look at how big they are! They'd probably eat you!"),
         DialogueLine.new(xena, "Not if I eat them first."),
     # Ship:
         DialogueLine.new(xena, "Well now... what do we have here?"),
         DialogueLine.new(alfred, "A ship?"),
-        DialogueLine.new(xena, "A /sunken/ ship. You know what that means."),
+        DialogueLine.new(xena, "A sunken ship. You know what that means."),
     SignalEmitter.new("request_next_constellations"),  # ship appears here
     WaitHere.new(),  # wait for ship to be placed correctly
         DialogueLine.new(alfred, "Uh..."),
@@ -128,6 +133,7 @@ onready var game_script = [
         DialogueLine.new(xena, "Wow... there's so many of them... how do you think they'll even get home?"),
         DialogueLine.new(alfred, "I mean... WHERE even is their home?"),
         DialogueLine.new(xena, "Well, once they get to the sunken ship, they'll probably have to swimp past th-"),
+    SignalEmitter.new("request_lights_on"),
     # [power comes back on. The stars fade from visiblity. Back to city light]
         DialogueLine.new(xena, "What?! No fair! We were just getting started!"),
         DialogueLine.new(alfred, "Hmm... well, hey maybe next time it'll be a different story?"),

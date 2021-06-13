@@ -66,3 +66,7 @@ func spawn_random_stars(n):
 func _input(event):
     if event.is_action_pressed("toggle_fullscreen"):
         OS.window_fullscreen = not(OS.window_fullscreen)
+
+
+func _on_request_lights_on():
+    $AnimationPlayer.play("lights_on")
