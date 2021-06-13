@@ -5,8 +5,7 @@ var Star = preload("res://star/Star.tscn")
 
 onready var constellations = $Constellations
 
-# var ordered_constellations = ['Fish', 'Mermaid', 'Catfish', 'SchoolOfFish', 'Octopus', 'Jellyfish', 'Squid', 'Shark', 'Ship']
-var ordered_constellations = ['Fish', 'Mermaid', 'Catfish', 'SchoolOfFish', 'Octopus', 'Jellyfish', 'Ship']
+var ordered_constellations = ['Fish', 'Mermaid', 'Catfish', 'SchoolOfFish', 'Octopus', 'Jellyfish', 'Squid', 'Shark', 'Ship']
 var current_stage = -1
 
 
