@@ -24,3 +24,5 @@ func _enter_tree():
     if not(Engine.editor_hint):
         var parent = get_parent()
         rotation = -parent.global_rotation * parent.scale.x
+    $AnimationPlayer.play("blink")
+    $AnimationPlayer.seek(randf() * 3)
