@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://constellations/StarMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://constellations/Constellation.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://constellations/jellyfish/silhouette.png" type="Texture" id=29]
 [ext_resource path="res://constellations/jellyfish/art.png" type="Texture" id=30]
 [ext_resource path="res://constellations/jellyfish/skeleton.png" type="Texture" id=31]
+[ext_resource path="res://icon.png" type="Texture" id=32]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -40,24 +41,6 @@ noise = SubResource( 1 )
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 6 )
 shader_param/noise_texture = SubResource( 2 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 118.548, 80.6358 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 204.857, 217.576 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 86.0502, 128.85 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 244.753, 96.0994 )
-
-[sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( -270, -400, 350, 150, -50, 350, -250, -300 )
-
-[sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 140, -200, 300, -200, 300, -20, 100, 200, -100, 220, -300, 80, -240, 20, 0, 0 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 10 )
@@ -165,8 +148,9 @@ __meta__ = {
 texture = ExtResource( 5 )
 centered = false
 
-[node name="constellation_spawn_0" type="Position2D" parent="Parallax/Cats"]
+[node name="constellation_spawn_0" type="Sprite" parent="Parallax/Cats"]
 position = Vector2( 1580, 690 )
+texture = ExtResource( 32 )
 
 [node name="constellation_spawn_1" type="Position2D" parent="Parallax/Cats"]
 position = Vector2( 2200, 690 )
@@ -218,7 +202,7 @@ position = Vector2( 78.8116, 43.2908 )
 
 [node name="Shape" parent="Constellations/Fish/Axis/Area" index="0"]
 position = Vector2( -5.66968, 1.88989 )
-shape = SubResource( 4 )
+polygon = PoolVector2Array( -123.53, 39.9971, -53.0303, -71.0029, 27.4697, -60.5029, 75.9697, -16.0029, 139.47, -31.0029, 109.97, 25.4971, 111.47, 72.4971, 58.9697, 48.4971, 15.4697, 74.9971, -66.5303, 70.4971 )
 
 [node name="Silhouette" parent="Constellations/Fish/Axis" index="2"]
 texture = ExtResource( 9 )
@@ -273,7 +257,7 @@ position = Vector2( -80.0255, 198.664 )
 
 [node name="Shape" parent="Constellations/Mermaid/Axis/Area" index="0"]
 position = Vector2( 11, 2 )
-shape = SubResource( 6 )
+polygon = PoolVector2Array( -153.283, 211.108, -28.692, 113.889, -123.079, 35.547, -153.283, -131.519, -239.176, -172.105, -218.411, -222.131, -69.2786, -248.559, -36.243, -223.075, -67.3909, -133.407, -34.3553, -2.20801, 62.8638, 36.4908, 84.5729, 19.5011, 15.67, -20.1416, 10.9507, -89.0444, 157.251, -102.259, 250.695, -11.6468, 237.481, 18.5572, 192.175, 35.547, 192.175, 54.4244, 217.659, 85.5723, 180.848, 198.837, 106.282, 239.424, 75.1342, 219.602, 71.3586, 183.735, 90.2361, 155.419, 43.9863, 154.475, -67.3909, 226.21, -135.35, 221.49 )
 
 [node name="Silhouette" parent="Constellations/Mermaid/Axis" index="2"]
 texture = ExtResource( 23 )
@@ -313,7 +297,7 @@ position = Vector2( -67.6602, 65.1778 )
 
 [node name="Shape" parent="Constellations/Catfish/Axis/Area" index="0"]
 position = Vector2( -3.77966, -5.66965 )
-shape = SubResource( 5 )
+polygon = PoolVector2Array( -22.2164, 144.832, -97.1697, 62.1009, -25.752, 48.6659, 37.1805, 7.65369, 27.2811, -21.3377, -56.1575, 0.582611, -104.241, -55.9859, -61.8144, -72.2494, -107.069, -125.282, -81.6134, -147.91, 11.7247, -86.3915, 90.9207, -96.291, 104.356, 50.7872, 3.23944, 92.5065, -8.78137, 157.56 )
 
 [node name="Silhouette" parent="Constellations/Catfish/Axis" index="2"]
 texture = ExtResource( 20 )
@@ -395,7 +379,7 @@ position = Vector2( -172.149, -16.6338 )
 
 [node name="Shape" parent="Constellations/Octopus/Axis/Area" index="0"]
 position = Vector2( -0.943909, 19.8214 )
-shape = SubResource( 7 )
+polygon = PoolVector2Array( -224.432, 108.41, -276.758, -13.2119, -197.562, -100.893, -136.044, -21.6972, -84.425, -20.9901, 47.0967, -119.985, 189.225, -112.207, 200.539, -32.3038, 263.471, -5.43378, 245.794, 80.8333, 158.113, 89.3185, 98.0085, 113.36, 35.0759, 100.632, -36.3418, 127.502, -83.718, 92.147, -122.609, 72.348 )
 
 [node name="Silhouette" parent="Constellations/Octopus/Axis" index="2"]
 texture = ExtResource( 17 )
@@ -407,7 +391,7 @@ texture = ExtResource( 16 )
 texture = ExtResource( 18 )
 
 [node name="SchoolOfFish" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( 1765.87, 436.345 )
+position = Vector2( 1771.87, 464.345 )
 
 [node name="StarMarker" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( -316.682, -335.41 )
@@ -471,7 +455,7 @@ position = Vector2( -41.6791, 101.228 )
 
 [node name="Shape" parent="Constellations/SchoolOfFish/Axis/Area" index="0"]
 position = Vector2( -60.5446, 47.0901 )
-shape = SubResource( 8 )
+polygon = PoolVector2Array( 2.28125, 301.23, -42.9086, 141.877, -79.7739, 40.794, -167.775, -59.0994, -210.587, -160.182, -251.02, -224.399, -279.397, -422.737, -183.359, -344.16, -136.531, -259.234, -65.0975, -191.77, -49.2236, -145.735, 11.8914, -103.669, 56.3386, -28.2675, 358.211, 106.248, 307.075, 183.546, 159.614, 284.629 )
 
 [node name="Silhouette" parent="Constellations/SchoolOfFish/Axis" index="2"]
 texture = ExtResource( 26 )
@@ -519,7 +503,7 @@ position = Vector2( -159.111, 41.1042 )
 position = Vector2( -249.111, 77.1042 )
 
 [node name="Shape" parent="Constellations/Jellyfish/Axis/Area" index="0"]
-shape = SubResource( 9 )
+polygon = PoolVector2Array( 15.0435, 56.6516, 92.4414, -82.0979, 79.2271, -170.822, 190.604, -231.23, 298.206, -167.047, 303.869, -44.3429, 245.349, -11.3073, 210.426, 77.4169, 146.242, 131.218, 97.1606, 201.064, -85.0071, 248.258, -147.303, 132.162, -301.154, 116.116, -271.894, 21.7283, -120.874, -16.0267, -26.4868, 31.1671, -26.4868, 31.1671 )
 
 [node name="Silhouette" parent="Constellations/Jellyfish/Axis" index="2"]
 texture = ExtResource( 29 )

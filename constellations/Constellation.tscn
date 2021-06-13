@@ -113,7 +113,7 @@ anims/skeleton_to_art = SubResource( 3 )
 
 [node name="Area" type="Area2D" parent="Axis"]
 
-[node name="Shape" type="CollisionShape2D" parent="Axis/Area"]
+[node name="Shape" type="CollisionPolygon2D" parent="Axis/Area"]
 
 [node name="Silhouette" type="Sprite" parent="Axis"]
 
