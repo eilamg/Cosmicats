@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://constellations/correct.ogg" type="AudioStream" id=1]
 [ext_resource path="res://constellations/Constellation.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -150,5 +151,9 @@ scale = Vector2( 0.9, 0.9 )
 
 [node name="Art" type="Sprite" parent="Axis"]
 self_modulate = Color( 1, 1, 1, 0 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -6.0
 
 [connection signal="input_event" from="Axis/Area" to="." method="_on_input_event"]

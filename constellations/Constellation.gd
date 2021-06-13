@@ -57,6 +57,7 @@ func get_star_positions():
 
 
 func _on_correctly_positioned(star_group):
+    $AudioStreamPlayer2D.play()
     disable_player_control()
     align_with_stargroup(star_group)
 
