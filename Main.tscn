@@ -15,8 +15,8 @@
 [ext_resource path="res://static_art/4_mg3.png" type="Texture" id=13]
 [ext_resource path="res://static_art/2_mg1.png" type="Texture" id=14]
 [ext_resource path="res://static_art/3_mg2.png" type="Texture" id=15]
-[ext_resource path="res://constellations/octopus/silhouette.png" type="Texture" id=16]
-[ext_resource path="res://constellations/octopus/skeleton.png" type="Texture" id=17]
+[ext_resource path="res://constellations/octopus/skeleton.png" type="Texture" id=16]
+[ext_resource path="res://constellations/octopus/silhouette.png" type="Texture" id=17]
 [ext_resource path="res://constellations/octopus/art.png" type="Texture" id=18]
 [ext_resource path="res://Dialogue.tscn" type="PackedScene" id=19]
 [ext_resource path="res://constellations/catfish/silhouette.png" type="Texture" id=20]
@@ -36,9 +36,6 @@ shader = ExtResource( 6 )
 shader_param/noise_texture = SubResource( 2 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 265.226, 126.009 )
-
-[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 118.548, 80.6358 )
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -46,6 +43,9 @@ extents = Vector2( 86.0502, 128.85 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 204.857, 217.576 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 244.753, 96.0994 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 10 )
@@ -166,71 +166,8 @@ dragger_visibility = 1
 
 [node name="Constellations" type="Node2D" parent="."]
 
-[node name="Octopus" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( 100, 100 )
-
-[node name="StarMarker" parent="Constellations/Octopus/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
-position = Vector2( 197.33, -9.1076 )
-
-[node name="StarMarker2" parent="Constellations/Octopus/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
-position = Vector2( 234.79, -35.8648 )
-
-[node name="StarMarker3" parent="Constellations/Octopus/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
-position = Vector2( 237.763, 19.4333 )
-
-[node name="StarMarker4" parent="Constellations/Octopus/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
-position = Vector2( 18.9486, 40.8391 )
-
-[node name="StarMarker5" parent="Constellations/Octopus/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
-position = Vector2( 187.816, 56.8934 )
-
-[node name="StarMarker6" parent="Constellations/Octopus/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
-position = Vector2( 243.114, 79.4883 )
-
-[node name="StarMarker7" parent="Constellations/Octopus/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
-position = Vector2( 69.4899, 123.489 )
-
-[node name="StarMarker8" parent="Constellations/Octopus/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
-position = Vector2( 83.7604, 82.4613 )
-
-[node name="StarMarker9" parent="Constellations/Octopus/Axis/StarMarkers" index="8" instance=ExtResource( 1 )]
-position = Vector2( -88.6746, 102.083 )
-
-[node name="StarMarker10" parent="Constellations/Octopus/Axis/StarMarkers" index="9" instance=ExtResource( 1 )]
-position = Vector2( -133.27, 37.866 )
-
-[node name="StarMarker11" parent="Constellations/Octopus/Axis/StarMarkers" index="10" instance=ExtResource( 1 )]
-position = Vector2( -85.107, -27.5404 )
-
-[node name="StarMarker12" parent="Constellations/Octopus/Axis/StarMarkers" index="11" instance=ExtResource( 1 )]
-position = Vector2( -238.515, 84.8397 )
-
-[node name="StarMarker13" parent="Constellations/Octopus/Axis/StarMarkers" index="12" instance=ExtResource( 1 )]
-position = Vector2( -217.109, 1.59518 )
-
-[node name="StarMarker14" parent="Constellations/Octopus/Axis/StarMarkers" index="13" instance=ExtResource( 1 )]
-position = Vector2( -214.731, 50.3527 )
-
-[node name="StarMarker15" parent="Constellations/Octopus/Axis/StarMarkers" index="14" instance=ExtResource( 1 )]
-position = Vector2( 1.11047, -57.8651 )
-
-[node name="StarMarker16" parent="Constellations/Octopus/Axis/StarMarkers" index="15" instance=ExtResource( 1 )]
-position = Vector2( -127.324, -100.082 )
-
-[node name="Shape" parent="Constellations/Octopus/Axis/Area" index="0"]
-shape = SubResource( 5 )
-
-[node name="Silhouette" parent="Constellations/Octopus/Axis" index="2"]
-texture = ExtResource( 16 )
-
-[node name="Skeleton" parent="Constellations/Octopus/Axis" index="3"]
-texture = ExtResource( 17 )
-
-[node name="Art" parent="Constellations/Octopus/Axis" index="4"]
-texture = ExtResource( 18 )
-
 [node name="Fish" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( 100, 100 )
+position = Vector2( -350, 400 )
 
 [node name="StarMarker" parent="Constellations/Fish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( -95.4075, 37.9393 )
@@ -270,7 +207,7 @@ position = Vector2( 78.8116, 43.2908 )
 
 [node name="Shape" parent="Constellations/Fish/Axis/Area" index="0"]
 position = Vector2( -5.66968, 1.88989 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Silhouette" parent="Constellations/Fish/Axis" index="2"]
 texture = ExtResource( 9 )
@@ -282,7 +219,7 @@ texture = ExtResource( 8 )
 texture = ExtResource( 7 )
 
 [node name="Catfish" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( 100, 100 )
+position = Vector2( -350, 400 )
 
 [node name="StarMarker" parent="Constellations/Catfish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( -74.5898, -118.771 )
@@ -322,7 +259,7 @@ texture = ExtResource( 21 )
 texture = ExtResource( 22 )
 
 [node name="Mermaid" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( 100, 100 )
+position = Vector2( -350, 400 )
 
 [node name="StarMarker" parent="Constellations/Mermaid/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
 position = Vector2( -193.525, -191.043 )
@@ -376,12 +313,100 @@ texture = ExtResource( 25 )
 [node name="Art" parent="Constellations/Mermaid/Axis" index="4"]
 texture = ExtResource( 24 )
 
+[node name="Octopus" parent="Constellations" instance=ExtResource( 2 )]
+position = Vector2( -350, 400 )
+
+[node name="StarMarker" parent="Constellations/Octopus/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
+position = Vector2( 167.964, -69.5532 )
+
+[node name="StarMarker2" parent="Constellations/Octopus/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
+position = Vector2( 10.3944, -28.5256 )
+
+[node name="StarMarker3" parent="Constellations/Octopus/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
+position = Vector2( -69.877, 44.6106 )
+
+[node name="StarMarker4" parent="Constellations/Octopus/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
+position = Vector2( -53.8227, 107.044 )
+
+[node name="StarMarker5" parent="Constellations/Octopus/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
+position = Vector2( -0.308411, 89.8004 )
+
+[node name="StarMarker6" parent="Constellations/Octopus/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
+position = Vector2( 6.23224, 32.1239 )
+
+[node name="StarMarker7" parent="Constellations/Octopus/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
+position = Vector2( 104.342, 101.693 )
+
+[node name="StarMarker8" parent="Constellations/Octopus/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
+position = Vector2( 138.829, 14.8804 )
+
+[node name="StarMarker9" parent="Constellations/Octopus/Axis/StarMarkers" index="8" instance=ExtResource( 1 )]
+position = Vector2( 82.3415, -14.2552 )
+
+[node name="StarMarker10" parent="Constellations/Octopus/Axis/StarMarkers" index="9" instance=ExtResource( 1 )]
+position = Vector2( 112.072, 82.6652 )
+
+[node name="StarMarker11" parent="Constellations/Octopus/Axis/StarMarkers" index="10" instance=ExtResource( 1 )]
+position = Vector2( 214.938, 76.7191 )
+
+[node name="StarMarker12" parent="Constellations/Octopus/Axis/StarMarkers" index="11" instance=ExtResource( 1 )]
+position = Vector2( 240.506, 33.9077 )
+
+[node name="StarMarker13" parent="Constellations/Octopus/Axis/StarMarkers" index="12" instance=ExtResource( 1 )]
+position = Vector2( 208.397, 23.7994 )
+
+[node name="StarMarker14" parent="Constellations/Octopus/Axis/StarMarkers" index="13" instance=ExtResource( 1 )]
+position = Vector2( -137.662, 45.7997 )
+
+[node name="StarMarker15" parent="Constellations/Octopus/Axis/StarMarkers" index="14" instance=ExtResource( 1 )]
+position = Vector2( -203.663, 93.3679 )
+
+[node name="StarMarker16" parent="Constellations/Octopus/Axis/StarMarkers" index="15" instance=ExtResource( 1 )]
+position = Vector2( -228.042, 70.1783 )
+
+[node name="StarMarker17" parent="Constellations/Octopus/Axis/StarMarkers" index="16" instance=ExtResource( 1 )]
+position = Vector2( -193.555, 55.3132 )
+
+[node name="StarMarker18" parent="Constellations/Octopus/Axis/StarMarkers" index="17" instance=ExtResource( 1 )]
+position = Vector2( -121.013, 19.0424 )
+
+[node name="StarMarker19" parent="Constellations/Octopus/Axis/StarMarkers" index="18" instance=ExtResource( 1 )]
+position = Vector2( -166.797, 48.178 )
+
+[node name="StarMarker20" parent="Constellations/Octopus/Axis/StarMarkers" index="19" instance=ExtResource( 1 )]
+position = Vector2( -230.42, 18.4478 )
+
+[node name="StarMarker21" parent="Constellations/Octopus/Axis/StarMarkers" index="20" instance=ExtResource( 1 )]
+position = Vector2( -194.744, -42.7963 )
+
+[node name="StarMarker22" parent="Constellations/Octopus/Axis/StarMarkers" index="21" instance=ExtResource( 1 )]
+position = Vector2( -172.149, -16.6338 )
+
+[node name="Shape" parent="Constellations/Octopus/Axis/Area" index="0"]
+position = Vector2( -0.943909, 19.8214 )
+shape = SubResource( 8 )
+
+[node name="Silhouette" parent="Constellations/Octopus/Axis" index="2"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 1 )
+texture = ExtResource( 17 )
+
+[node name="Skeleton" parent="Constellations/Octopus/Axis" index="3"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 1 )
+texture = ExtResource( 16 )
+
+[node name="Art" parent="Constellations/Octopus/Axis" index="4"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 1 )
+texture = ExtResource( 18 )
+
 [connection signal="mouse_entered" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_entered"]
 [connection signal="mouse_exited" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_exited"]
 [connection signal="mouse_entered" from="Camera/RightMargin" to="Camera" method="_on_RightMargin_mouse_entered"]
 [connection signal="mouse_exited" from="Camera/RightMargin" to="Camera" method="_on_RightMargin_mouse_exited"]
 
-[editable path="Constellations/Octopus"]
 [editable path="Constellations/Fish"]
 [editable path="Constellations/Catfish"]
 [editable path="Constellations/Mermaid"]
+[editable path="Constellations/Octopus"]
