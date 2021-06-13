@@ -21,6 +21,7 @@ func _on_constellations_requested():
 
     var constellation = get_node("Constellations/" + c)
     constellation.position = $Parallax/Cats/constellation_spawn_0.global_position  # TODO
+    constellation.connect("constellation_finished", $Parallax/Cats/Dialogue, "_on_constellation_finished")
     constellation.fade_in()
 
 

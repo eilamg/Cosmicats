@@ -29,6 +29,10 @@ class SignalEmitter:
         auto_advance = auto_advance_
 
 
+class WaitHere:
+    const auto_advance = false
+
+
 onready var game_script = [
     # Opening - After the power goes up.
     # Fish
@@ -44,18 +48,19 @@ onready var game_script = [
         DialogueLine.new(xena, "It's a fish! Right there!"),
         DialogueLine.new(alfred, "Uh... I don't..."),
         DialogueLine.new(xena, "No, you're looking at it wrong! It's like this, see?", true),
-            # fish appears here
-            SignalEmitter.new("request_next_constellations"),
+    SignalEmitter.new("request_next_constellations"),  # fish appears here
+    WaitHere.new(),  # wait for fish to be placed correctly
         DialogueLine.new(alfred, "Oh hey yeah! You're right!"),
         DialogueLine.new(xena, "Told ya."),
         DialogueLine.new(alfred, "Are there any more up there?"),
     # Mermaid
-        DialogueLine.new(alfred, "Look, it's one of those... what do the humans call them... mermaids?"),
+        DialogueLine.new(alfred, "Look, it's one of those... what do the humans call them... mermaids?", true),
+    SignalEmitter.new("request_next_constellations"),  # mermaid appears here
         DialogueLine.new(xena, "A what?"),
         DialogueLine.new(alfred, "You know, that thing where it's like half human, half fish."),
         DialogueLine.new(xena, "...so, a fish that walks around on-"),
         DialogueLine.new(alfred, "No! Wrong halves! See, it's like that!"),
-            # mermaid appears here
+    WaitHere.new(),  # wait for mermaid to be placed correctly
     # Cat Fish:
         DialogueLine.new(alfred, "Hmm... something is missing..."),
         DialogueLine.new(xena, "How do you mean?"),
@@ -133,16 +138,28 @@ func _input(event):
 
 func advance_script():
     current_line_number += 1
+    print(current_line_number)
 
     if current_line_number >= len(game_script):
         return
 
     var line = game_script[current_line_number]
 
-    if line is DialogueLine:
+    if line is WaitHere:
+        print('wait here')
+        current_line_number -= 1
+        return
+    elif line is DialogueLine:
+        print('dialogue')
         line.speaker.text = line.text
     elif line is SignalEmitter:
+        print('signal_emitter')
         emit_signal(line.signal_name)
 
     if line.auto_advance:
         advance_script()
+
+
+func _on_constellation_finished():
+    current_line_number += 1  # force advance past "WaitHere"
+    advance_script()

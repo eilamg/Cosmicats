@@ -3,7 +3,7 @@ extends Node2D
 class_name Constellation
 
 
-# var _is_ready = false
+signal constellation_finished
 
 onready var axis = $Axis
 
