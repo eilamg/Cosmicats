@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://constellations/skeleton_aura.shader" type="Shader" id=1]
 [ext_resource path="res://constellations/Constellation.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -99,6 +100,11 @@ tracks/2/keys = {
 } ]
 }
 
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+shader_param/aura_width = 2.0
+shader_param/aura_color = Color( 0.211765, 0.709804, 0.882353, 1 )
+
 [node name="Constellation" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -118,6 +124,7 @@ anims/skeleton_to_art = SubResource( 3 )
 [node name="Silhouette" type="Sprite" parent="Axis"]
 
 [node name="Skeleton" type="Sprite" parent="Axis"]
+material = SubResource( 4 )
 
 [node name="Art" type="Sprite" parent="Axis"]
 
