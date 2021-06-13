@@ -48,10 +48,9 @@ tracks/1/keys = {
 script = ExtResource( 2 )
 
 [node name="Highlight" type="AnimatedSprite" parent="."]
-modulate = Color( 1, 0.870588, 0.176471, 0.49226 )
+modulate = Color( 1, 0.870588, 0.176471, 0.2251 )
 light_mask = 2
 material = SubResource( 1 )
-scale = Vector2( 1.31066, 1.31066 )
 frames = SubResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
