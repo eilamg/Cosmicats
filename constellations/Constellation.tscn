@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://constellations/skeleton_aura.shader" type="Shader" id=1]
 [ext_resource path="res://constellations/Constellation.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "silhouette_fade_in"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
 tracks/0/interp = 2
@@ -12,14 +12,27 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "silhouette_to_skeleton"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
 tracks/0/interp = 1
@@ -27,8 +40,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -39,8 +52,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -51,16 +64,29 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 1.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "skeleton_to_art" ],
 "method": "play"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "skeleton_to_art"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
 tracks/0/interp = 1
@@ -68,8 +94,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -80,8 +106,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -92,18 +118,13 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "constellation_finished" ],
 "method": "emit_signal"
 } ]
 }
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = ExtResource( 1 )
-shader_param/aura_width = 2.0
-shader_param/aura_color = Color( 0.211765, 0.709804, 0.882353, 1 )
 
 [node name="Constellation" type="Node2D"]
 script = ExtResource( 2 )
@@ -122,10 +143,12 @@ anims/skeleton_to_art = SubResource( 3 )
 [node name="Shape" type="CollisionPolygon2D" parent="Axis/Area"]
 
 [node name="Silhouette" type="Sprite" parent="Axis"]
+self_modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.9, 0.9 )
 
 [node name="Skeleton" type="Sprite" parent="Axis"]
-material = SubResource( 4 )
 
 [node name="Art" type="Sprite" parent="Axis"]
+self_modulate = Color( 1, 1, 1, 0 )
 
 [connection signal="input_event" from="Axis/Area" to="." method="_on_input_event"]
