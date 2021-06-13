@@ -38,20 +38,20 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 0.9, 1.5, 2, 2.6, 3 ),
+"times": PoolRealArray( -0.0062741, 0.5, 0.893726, 1.5, 1.99373, 2.6, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.796078, 0.968627, 1, 0.207843 ), Color( 0.796078, 0.968627, 1, 0.470588 ), Color( 0.796078, 0.968627, 1, 0.207843 ), Color( 0.796078, 0.968627, 1, 0.470588 ), Color( 0.796078, 0.968627, 1, 0.207843 ), Color( 0.796078, 0.968627, 1, 0.470588 ), Color( 0.796078, 0.968627, 1, 0.207843 ) ]
+"values": [ Color( 1, 0.870588, 0.176471, 0.219608 ), Color( 1, 0.870588, 0.176471, 0.662745 ), Color( 1, 0.870588, 0.176471, 0.219608 ), Color( 1, 0.870588, 0.176471, 0.662745 ), Color( 1, 0.870588, 0.176471, 0.219608 ), Color( 1, 0.870588, 0.176471, 0.662745 ), Color( 1, 0.870588, 0.176471, 0.219608 ) ]
 }
 
 [node name="Star" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Highlight" type="AnimatedSprite" parent="."]
-modulate = Color( 0.796078, 0.968627, 1, 0.394759 )
+modulate = Color( 1, 0.870588, 0.176471, 0.49226 )
 light_mask = 2
 material = SubResource( 1 )
-scale = Vector2( 1.3557, 1.3557 )
+scale = Vector2( 1.31066, 1.31066 )
 frames = SubResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
