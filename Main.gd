@@ -39,6 +39,10 @@ func _on_constellations_requested():
 
     var constellation = get_node("Constellations/" + c)
     constellation.global_position = $Camera.position + Vector2(1920, 1080) / 2 + Vector2(0, 100);
+    if randf() > 0.5:
+        constellation.mirror()
+    constellation.axis.rotation = randf() * 2 * PI
+
     constellation.connect("constellation_finished", $ParallaxFG/Cats/Dialogue, "_on_constellation_finished")
     constellation.fade_in()
 
