@@ -176,6 +176,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("ParallaxBG/Sky/bg_stars:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 length = 5.0
@@ -198,7 +210,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 2.1 ),
+"times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -289,6 +301,18 @@ tracks/8/keys = {
 "method": "advance_script"
 } ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("ParallaxBG/Sky/bg_stars:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.7, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 10 )
@@ -340,6 +364,7 @@ texture = ExtResource( 32 )
 centered = false
 
 [node name="bg_stars" type="Sprite" parent="ParallaxBG/Sky"]
+self_modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 3 )
 texture = ExtResource( 3 )
 centered = false
