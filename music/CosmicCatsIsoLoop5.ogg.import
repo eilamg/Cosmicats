@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/CosmicCatsIsoLoop5.ogg-e7109892d1e246a2ecb76b5811d0c8bd.oggstr"
+
+[deps]
+
+source_file="res://music/CosmicCatsIsoLoop5.ogg"
+dest_files=[ "res://.import/CosmicCatsIsoLoop5.ogg-e7109892d1e246a2ecb76b5811d0c8bd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

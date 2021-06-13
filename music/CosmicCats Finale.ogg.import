@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/CosmicCats Finale.ogg-eebe46239a1617bc1dca8994a0686ef5.oggstr"
+
+[deps]
+
+source_file="res://music/CosmicCats Finale.ogg"
+dest_files=[ "res://.import/CosmicCats Finale.ogg-eebe46239a1617bc1dca8994a0686ef5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
