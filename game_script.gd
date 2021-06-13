@@ -115,6 +115,8 @@ onready var game_script = [
         DialogueLine.new(xena, "Well now... what do we have here?"),
         DialogueLine.new(alfred, "A ship?"),
         DialogueLine.new(xena, "A /sunken/ ship. You know what that means."),
+    SignalEmitter.new("request_next_constellations"),  # ship appears here
+    WaitHere.new(),  # wait for ship to be placed correctly
         DialogueLine.new(alfred, "Uh..."),
         DialogueLine.new(xena, "That's right, treasure!"),
         DialogueLine.new(alfred, "Come again?"),
@@ -138,14 +140,14 @@ onready var game_script = [
 ]
 
 
-func _input(event):
-    if event.is_action_pressed("ui_down"):
-        advance_script()
+# func _input(event):
+#      if event.is_action_pressed("ui_down"):
+#          advance_script()
 
 
 func advance_script():
     current_line_number += 1
-    print(current_line_number)
+    # print(current_line_number)
 
     if current_line_number >= len(game_script):
         return
@@ -153,14 +155,15 @@ func advance_script():
     var line = game_script[current_line_number]
 
     if line is WaitHere:
-        print('wait here')
+        # print('wait here')
         current_line_number -= 1
         return
     elif line is DialogueLine:
-        print('dialogue')
+        # print('dialogue')
         line.speaker.text = line.text
+        auto_advance_after_n_seconds(len(line.text) / 10.0)  # auto-advance text according to line length
     elif line is SignalEmitter:
-        print('signal_emitter')
+        # print('signal_emitter')
         emit_signal(line.signal_name)
 
     if line.auto_advance:
@@ -169,4 +172,9 @@ func advance_script():
 
 func _on_constellation_finished():
     current_line_number += 1  # force advance past "WaitHere"
+    advance_script()
+
+
+func auto_advance_after_n_seconds(n):
+    yield(get_tree().create_timer(n), "timeout")
     advance_script()
