@@ -70,3 +70,7 @@ func _input(event):
 
 func _on_request_lights_on():
     $AnimationPlayer.play("lights_on")
+
+
+func _on_request_finale_music():
+    $MusicPlayer.play_finale_music()

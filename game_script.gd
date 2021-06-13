@@ -9,6 +9,7 @@ var current_line_number = -1
 signal request_next_constellations
 signal request_instructions
 signal request_lights_on
+signal request_finale_music
 
 
 class DialogueLine:
@@ -131,6 +132,7 @@ onready var game_script = [
         DialogueLine.new(alfred, "No kidding... and they're probably already so far from home... I mean, look at how BIG this ocean is!"),
     # [some kind of zooming out showing the sky on the whole if possible?]
         DialogueLine.new(xena, "Wow... there's so many of them... how do you think they'll even get home?"),
+    SignalEmitter.new("request_finale_music"),
         DialogueLine.new(alfred, "I mean... WHERE even is their home?"),
         DialogueLine.new(xena, "Well, once they get to the sunken ship, they'll probably have to swimp past th-"),
     SignalEmitter.new("request_lights_on"),

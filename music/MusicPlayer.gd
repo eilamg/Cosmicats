@@ -24,3 +24,10 @@ func add_layer():
 
 func _on_constellation_positioned(constellation):
     add_layer()
+
+
+func play_finale_music():
+    for layer in layers:
+        if layer != null:
+            layer.stop()
+    $FinaleMusic.play()
