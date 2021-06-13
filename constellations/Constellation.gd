@@ -81,3 +81,9 @@ func _on_aligned():
 
 func fade_in():
     $AnimationPlayer.play("silhouette_fade_in")
+
+
+func zero_alpha():
+    $Axis/Silhouette.self_modulate.a = 0
+    $Axis/Skeleton.self_modulate.a = 0
+    $Axis/Art.self_modulate.a = 0

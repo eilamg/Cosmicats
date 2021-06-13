@@ -116,12 +116,9 @@ anims/skeleton_to_art = SubResource( 3 )
 [node name="Shape" type="CollisionShape2D" parent="Axis/Area"]
 
 [node name="Silhouette" type="Sprite" parent="Axis"]
-self_modulate = Color( 1, 1, 1, 0 )
 
 [node name="Skeleton" type="Sprite" parent="Axis"]
-self_modulate = Color( 1, 1, 1, 0 )
 
 [node name="Art" type="Sprite" parent="Axis"]
-self_modulate = Color( 1, 1, 1, 0 )
 
 [connection signal="input_event" from="Axis/Area" to="." method="_on_input_event"]

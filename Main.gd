@@ -4,7 +4,7 @@ extends Node2D
 var Star = preload("res://star/Star.tscn")
 
 
-var ordered_constellations = ['Fish', 'Mermaid', 'Catfish', 'Milky way', 'Octopus', 'Jellyfish', 'Squid', 'Shark', 'Ship']
+var ordered_constellations = ['Fish', 'Mermaid', 'Catfish', 'SchoolOfFish', 'Octopus', 'Jellyfish', 'Squid', 'Shark', 'Ship']
 var current_stage = -1
 
 
@@ -12,7 +12,14 @@ func _ready():
     randomize()
     $Parallax/Cats/Dialogue.connect("request_next_constellations", self, "_on_constellations_requested")
     spawn_star_groups()
+    hide_away_constellations()
     # spawn_random_stars(100)
+
+
+func hide_away_constellations():
+    for constellation in $Constellations.get_children():
+        constellation.position = Vector2(-500, -500)
+        constellation.zero_alpha()
 
 
 func _on_constellations_requested():
@@ -20,14 +27,14 @@ func _on_constellations_requested():
     var c = ordered_constellations[current_stage]
 
     var constellation = get_node("Constellations/" + c)
-    constellation.position = $Parallax/Cats/constellation_spawn_0.global_position  # TODO
+    constellation.global_position = $Parallax/Cats/constellation_spawn_0.global_position  # TODO
     constellation.connect("constellation_finished", $Parallax/Cats/Dialogue, "_on_constellation_finished")
     constellation.fade_in()
 
 
 func spawn_star_groups():
     for constellation in $Constellations.get_children():
-        var star_group = StarGroup.new(constellation, Vector2(200 + randf() * 3440, 200 + randf() * 400), randf() * PI, randf() > 0.5)
+        var star_group = StarGroup.new(constellation, constellation.position, constellation.axis.rotation, constellation.axis.scale.x == -1)
         star_group.name = constellation.name
         $Parallax/Sky/Stars.add_child(star_group)
 
