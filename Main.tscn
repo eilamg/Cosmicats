@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://constellations/StarMarker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://constellations/Constellation.tscn" type="PackedScene" id=2]
@@ -25,6 +25,9 @@
 [ext_resource path="res://constellations/mermaid/silhouette.png" type="Texture" id=23]
 [ext_resource path="res://constellations/mermaid/art.png" type="Texture" id=24]
 [ext_resource path="res://constellations/mermaid/skeleton.png" type="Texture" id=25]
+[ext_resource path="res://constellations/school_of_fish/silhouette.png" type="Texture" id=26]
+[ext_resource path="res://constellations/school_of_fish/skeleton.png" type="Texture" id=27]
+[ext_resource path="res://constellations/school_of_fish/art.png" type="Texture" id=28]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -35,17 +38,20 @@ noise = SubResource( 1 )
 shader = ExtResource( 6 )
 shader_param/noise_texture = SubResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 118.548, 80.6358 )
 
 [sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 204.857, 217.576 )
+
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 86.0502, 128.85 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 204.857, 217.576 )
-
-[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 244.753, 96.0994 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( -270, -400, 350, 150, -50, 350, -250, -300 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 10 )
@@ -207,7 +213,7 @@ position = Vector2( 78.8116, 43.2908 )
 
 [node name="Shape" parent="Constellations/Fish/Axis/Area" index="0"]
 position = Vector2( -5.66968, 1.88989 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Silhouette" parent="Constellations/Fish/Axis" index="2"]
 texture = ExtResource( 9 )
@@ -217,46 +223,6 @@ texture = ExtResource( 8 )
 
 [node name="Art" parent="Constellations/Fish/Axis" index="4"]
 texture = ExtResource( 7 )
-
-[node name="Catfish" parent="Constellations" instance=ExtResource( 2 )]
-position = Vector2( -350, 400 )
-
-[node name="StarMarker" parent="Constellations/Catfish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
-position = Vector2( -74.5898, -118.771 )
-
-[node name="StarMarker2" parent="Constellations/Catfish/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
-position = Vector2( -61.9906, -45.6952 )
-
-[node name="StarMarker3" parent="Constellations/Catfish/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
-position = Vector2( -0.254517, -60.1843 )
-
-[node name="StarMarker4" parent="Constellations/Catfish/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
-position = Vector2( 53.2921, -73.4135 )
-
-[node name="StarMarker5" parent="Constellations/Catfish/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
-position = Vector2( 74.7108, 8.48138 )
-
-[node name="StarMarker6" parent="Constellations/Catfish/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
-position = Vector2( -24.8229, 76.5171 )
-
-[node name="StarMarker7" parent="Constellations/Catfish/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
-position = Vector2( -24.8229, 113.055 )
-
-[node name="StarMarker8" parent="Constellations/Catfish/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
-position = Vector2( -67.6602, 65.1778 )
-
-[node name="Shape" parent="Constellations/Catfish/Axis/Area" index="0"]
-position = Vector2( -3.77966, -5.66965 )
-shape = SubResource( 6 )
-
-[node name="Silhouette" parent="Constellations/Catfish/Axis" index="2"]
-texture = ExtResource( 20 )
-
-[node name="Skeleton" parent="Constellations/Catfish/Axis" index="3"]
-texture = ExtResource( 21 )
-
-[node name="Art" parent="Constellations/Catfish/Axis" index="4"]
-texture = ExtResource( 22 )
 
 [node name="Mermaid" parent="Constellations" instance=ExtResource( 2 )]
 position = Vector2( -350, 400 )
@@ -302,7 +268,7 @@ position = Vector2( -80.0255, 198.664 )
 
 [node name="Shape" parent="Constellations/Mermaid/Axis/Area" index="0"]
 position = Vector2( 11, 2 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Silhouette" parent="Constellations/Mermaid/Axis" index="2"]
 texture = ExtResource( 23 )
@@ -312,6 +278,46 @@ texture = ExtResource( 25 )
 
 [node name="Art" parent="Constellations/Mermaid/Axis" index="4"]
 texture = ExtResource( 24 )
+
+[node name="Catfish" parent="Constellations" instance=ExtResource( 2 )]
+position = Vector2( -350, 400 )
+
+[node name="StarMarker" parent="Constellations/Catfish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
+position = Vector2( -74.5898, -118.771 )
+
+[node name="StarMarker2" parent="Constellations/Catfish/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
+position = Vector2( -61.9906, -45.6952 )
+
+[node name="StarMarker3" parent="Constellations/Catfish/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
+position = Vector2( -0.254517, -60.1843 )
+
+[node name="StarMarker4" parent="Constellations/Catfish/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
+position = Vector2( 53.2921, -73.4135 )
+
+[node name="StarMarker5" parent="Constellations/Catfish/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
+position = Vector2( 74.7108, 8.48138 )
+
+[node name="StarMarker6" parent="Constellations/Catfish/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
+position = Vector2( -24.8229, 76.5171 )
+
+[node name="StarMarker7" parent="Constellations/Catfish/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
+position = Vector2( -24.8229, 113.055 )
+
+[node name="StarMarker8" parent="Constellations/Catfish/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
+position = Vector2( -67.6602, 65.1778 )
+
+[node name="Shape" parent="Constellations/Catfish/Axis/Area" index="0"]
+position = Vector2( -3.77966, -5.66965 )
+shape = SubResource( 5 )
+
+[node name="Silhouette" parent="Constellations/Catfish/Axis" index="2"]
+texture = ExtResource( 20 )
+
+[node name="Skeleton" parent="Constellations/Catfish/Axis" index="3"]
+texture = ExtResource( 21 )
+
+[node name="Art" parent="Constellations/Catfish/Axis" index="4"]
+texture = ExtResource( 22 )
 
 [node name="Octopus" parent="Constellations" instance=ExtResource( 2 )]
 position = Vector2( -350, 400 )
@@ -384,22 +390,92 @@ position = Vector2( -172.149, -16.6338 )
 
 [node name="Shape" parent="Constellations/Octopus/Axis/Area" index="0"]
 position = Vector2( -0.943909, 19.8214 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Silhouette" parent="Constellations/Octopus/Axis" index="2"]
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 1 )
 texture = ExtResource( 17 )
 
 [node name="Skeleton" parent="Constellations/Octopus/Axis" index="3"]
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 1 )
 texture = ExtResource( 16 )
 
 [node name="Art" parent="Constellations/Octopus/Axis" index="4"]
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 1 )
 texture = ExtResource( 18 )
+
+[node name="SchoolOfFish" parent="Constellations" instance=ExtResource( 2 )]
+position = Vector2( -313.815, 398.97 )
+
+[node name="StarMarker" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="0" instance=ExtResource( 1 )]
+position = Vector2( -316.682, -335.41 )
+
+[node name="StarMarker2" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="1" instance=ExtResource( 1 )]
+position = Vector2( -260.559, -179.387 )
+
+[node name="StarMarker3" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="2" instance=ExtResource( 1 )]
+position = Vector2( -236.988, -227.653 )
+
+[node name="StarMarker4" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="3" instance=ExtResource( 1 )]
+position = Vector2( -230.253, -199.592 )
+
+[node name="StarMarker5" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="4" instance=ExtResource( 1 )]
+position = Vector2( -212.294, -116.529 )
+
+[node name="StarMarker6" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="5" instance=ExtResource( 1 )]
+position = Vector2( -222.396, -58.1614 )
+
+[node name="StarMarker7" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="6" instance=ExtResource( 1 )]
+position = Vector2( -150.558, -129.999 )
+
+[node name="StarMarker8" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="7" instance=ExtResource( 1 )]
+position = Vector2( -71.9857, -22.2427 )
+
+[node name="StarMarker9" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="8" instance=ExtResource( 1 )]
+position = Vector2( -129.231, -0.915894 )
+
+[node name="StarMarker10" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="9" instance=ExtResource( 1 )]
+position = Vector2( -118.007, 47.35 )
+
+[node name="StarMarker11" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="10" instance=ExtResource( 1 )]
+position = Vector2( -164.027, 31.6355 )
+
+[node name="StarMarker12" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="11" instance=ExtResource( 1 )]
+position = Vector2( -6.88281, 150.616 )
+
+[node name="StarMarker13" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="12" instance=ExtResource( 1 )]
+position = Vector2( 136.792, 207.862 )
+
+[node name="StarMarker14" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="13" instance=ExtResource( 1 )]
+position = Vector2( 244.549, 171.943 )
+
+[node name="StarMarker15" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="14" instance=ExtResource( 1 )]
+position = Vector2( -8.00537, 86.6361 )
+
+[node name="StarMarker16" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="15" instance=ExtResource( 1 )]
+position = Vector2( -79.8429, 149.494 )
+
+[node name="StarMarker17" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="16" instance=ExtResource( 1 )]
+position = Vector2( 43.6281, 234.801 )
+
+[node name="StarMarker18" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="17" instance=ExtResource( 1 )]
+position = Vector2( 125.568, 261.74 )
+
+[node name="StarMarker19" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="18" instance=ExtResource( 1 )]
+position = Vector2( -15.8624, 307.761 )
+
+[node name="StarMarker20" parent="Constellations/SchoolOfFish/Axis/StarMarkers" index="19" instance=ExtResource( 1 )]
+position = Vector2( -41.6791, 101.228 )
+
+[node name="Shape" parent="Constellations/SchoolOfFish/Axis/Area" index="0"]
+position = Vector2( -60.5446, 47.0901 )
+shape = SubResource( 8 )
+
+[node name="Silhouette" parent="Constellations/SchoolOfFish/Axis" index="2"]
+texture = ExtResource( 26 )
+
+[node name="Skeleton" parent="Constellations/SchoolOfFish/Axis" index="3"]
+texture = ExtResource( 27 )
+
+[node name="Art" parent="Constellations/SchoolOfFish/Axis" index="4"]
+texture = ExtResource( 28 )
 
 [connection signal="mouse_entered" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_entered"]
 [connection signal="mouse_exited" from="Camera/LeftMargin" to="Camera" method="_on_LeftMargin_mouse_exited"]
@@ -407,6 +483,7 @@ texture = ExtResource( 18 )
 [connection signal="mouse_exited" from="Camera/RightMargin" to="Camera" method="_on_RightMargin_mouse_exited"]
 
 [editable path="Constellations/Fish"]
-[editable path="Constellations/Catfish"]
 [editable path="Constellations/Mermaid"]
+[editable path="Constellations/Catfish"]
 [editable path="Constellations/Octopus"]
+[editable path="Constellations/SchoolOfFish"]
