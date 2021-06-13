@@ -7,30 +7,27 @@ var current_line_number = -1
 
 
 signal request_next_constellations
+signal request_instructions
 
 
 class DialogueLine:
     var speaker
     var text
-    var auto_advance
 
-    func _init(speaker_, text_, auto_advance_=false):
+    func _init(speaker_, text_):
         speaker = speaker_
         text = text_
-        auto_advance = auto_advance_
 
 
 class SignalEmitter:
     var signal_name
-    var auto_advance
 
-    func _init(signal_name_, auto_advance_=false):
+    func _init(signal_name_):
         signal_name = signal_name_
-        auto_advance = auto_advance_
 
 
 class WaitHere:
-    const auto_advance = false
+    pass
 
 
 onready var game_script = [
@@ -47,14 +44,15 @@ onready var game_script = [
         DialogueLine.new(alfred, "What? What's where?"),
         DialogueLine.new(xena, "It's a fish! Right there!"),
         DialogueLine.new(alfred, "Uh... I don't..."),
-        DialogueLine.new(xena, "No, you're looking at it wrong! It's like this, see?", true),
+        DialogueLine.new(xena, "No, you're looking at it wrong! It's like this, see?"),
+    SignalEmitter.new("request_instructions"),  # instructions appear
     SignalEmitter.new("request_next_constellations"),  # fish appears here
     WaitHere.new(),  # wait for fish to be placed correctly
         DialogueLine.new(alfred, "Oh hey yeah! You're right!"),
         DialogueLine.new(xena, "Told ya."),
         DialogueLine.new(alfred, "Are there any more up there?"),
     # Mermaid
-        DialogueLine.new(alfred, "Look, it's one of those... what do the humans call them... mermaids?", true),
+        DialogueLine.new(alfred, "Look, it's one of those... what do the humans call them... mermaids?"),
         DialogueLine.new(xena, "A what?"),
         DialogueLine.new(alfred, "You know, that thing where it's like half human, half fish."),
         DialogueLine.new(xena, "...so, a fish that walks around on-"),
@@ -140,14 +138,8 @@ onready var game_script = [
 ]
 
 
-# func _input(event):
-#      if event.is_action_pressed("ui_down"):
-#          advance_script()
-
-
 func advance_script():
     current_line_number += 1
-    # print(current_line_number)
 
     if current_line_number >= len(game_script):
         return
@@ -155,18 +147,13 @@ func advance_script():
     var line = game_script[current_line_number]
 
     if line is WaitHere:
-        # print('wait here')
         current_line_number -= 1
         return
     elif line is DialogueLine:
-        # print('dialogue')
         line.speaker.text = line.text
-        auto_advance_after_n_seconds(len(line.text) / 10.0)  # auto-advance text according to line length
+        auto_advance_after_n_seconds(max(len(line.text) / 10.0, 1.0))
     elif line is SignalEmitter:
-        # print('signal_emitter')
         emit_signal(line.signal_name)
-
-    if line.auto_advance:
         advance_script()
 
 

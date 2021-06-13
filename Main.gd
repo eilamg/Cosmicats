@@ -19,7 +19,13 @@ func _ready():
 
     $AnimationPlayer.play("intro")
 
+    $ParallaxFG/Cats/Dialogue.connect("request_instructions", self, "_on_instructions_requested")
+
     # spawn_random_stars(100)
+
+
+func _on_instructions_requested():
+    $AnimationPlayer.play("display_instructions")
 
 
 func hide_away_constellations():
