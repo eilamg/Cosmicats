@@ -1,0 +1,1692 @@
+[gd_scene load_steps=57 format=2]
+
+[ext_resource path="res://constellations/Constellation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://constellations/StarMarker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://constellations/ship/silhouette.png" type="Texture" id=3]
+[ext_resource path="res://constellations/octopus/skeleton.png" type="Texture" id=4]
+[ext_resource path="res://constellations/fish/art.png" type="Texture" id=5]
+[ext_resource path="res://constellations/fish/skeleton.png" type="Texture" id=6]
+[ext_resource path="res://constellations/fish/silhouette.png" type="Texture" id=7]
+[ext_resource path="res://constellations/octopus/art.png" type="Texture" id=8]
+[ext_resource path="res://constellations/mermaid/silhouette.png" type="Texture" id=9]
+[ext_resource path="res://constellations/mermaid/art.png" type="Texture" id=10]
+[ext_resource path="res://constellations/catfish/silhouette.png" type="Texture" id=11]
+[ext_resource path="res://constellations/mermaid/skeleton.png" type="Texture" id=12]
+[ext_resource path="res://constellations/catfish/skeleton.png" type="Texture" id=13]
+[ext_resource path="res://constellations/school_of_fish/art.png" type="Texture" id=14]
+[ext_resource path="res://constellations/jellyfish/art.png" type="Texture" id=15]
+[ext_resource path="res://constellations/school_of_fish/skeleton.png" type="Texture" id=16]
+[ext_resource path="res://constellations/jellyfish/silhouette.png" type="Texture" id=17]
+[ext_resource path="res://constellations/jellyfish/skeleton.png" type="Texture" id=18]
+[ext_resource path="res://constellations/ship/skeleton.png" type="Texture" id=19]
+[ext_resource path="res://constellations/ship/art.png" type="Texture" id=20]
+[ext_resource path="res://constellations/catfish/art.png" type="Texture" id=21]
+[ext_resource path="res://constellations/octopus/silhouette.png" type="Texture" id=22]
+[ext_resource path="res://constellations/school_of_fish/silhouette.png" type="Texture" id=23]
+[ext_resource path="res://constellations/shark/skeleton.png" type="Texture" id=24]
+[ext_resource path="res://constellations/squid/art.png" type="Texture" id=25]
+[ext_resource path="res://constellations/shark/silhouette.png" type="Texture" id=26]
+[ext_resource path="res://constellations/squid/silhouette.png" type="Texture" id=27]
+[ext_resource path="res://constellations/squid/skeleton.png" type="Texture" id=28]
+[ext_resource path="res://constellations/shark/art.png" type="Texture" id=29]
+
+[sub_resource type="Animation" id=1]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "silhouette_fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1.41421, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Silhouette:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4 ),
+"transitions": PoolRealArray( -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 0.9, 0.9 ), Vector2( 1.02, 1.02 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "silhouette_to_skeleton"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Silhouette:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "skeleton_to_art" ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Axis/Skeleton:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.3 ),
+"transitions": PoolRealArray( -2, -2, -2, 2 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.015, 1.015 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "skeleton_to_art"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Axis/Skeleton:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Axis/Art:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 2, 2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "constellation_finished" ],
+"method": "emit_signal"
+} ]
+}
+
+[node name="Constellations" type="Node2D"]
+
+[node name="Fish" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2231.41, 713.226 )
+
+[node name="AnimationPlayer" parent="Fish" index="0"]
+anims/silhouette_fade_in = SubResource( 1 )
+anims/silhouette_to_skeleton = SubResource( 2 )
+anims/skeleton_to_art = SubResource( 3 )
+
+[node name="StarMarker" parent="Fish/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( -95.4075, 37.9393 )
+
+[node name="StarMarker2" parent="Fish/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( -50.2177, -41.143 )
+
+[node name="StarMarker3" parent="Fish/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( -50.8121, 51.0206 )
+
+[node name="StarMarker4" parent="Fish/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( -34.1632, -41.7376 )
+
+[node name="StarMarker5" parent="Fish/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( -24.0551, 51.0206 )
+
+[node name="StarMarker6" parent="Fish/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( 1.51292, -17.3588 )
+
+[node name="StarMarker7" parent="Fish/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( -5.62233, 49.8314 )
+
+[node name="StarMarker8" parent="Fish/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( 33.027, 5.83073 )
+
+[node name="StarMarker9" parent="Fish/Axis/StarMarkers" index="8" instance=ExtResource( 2 )]
+position = Vector2( 15.7836, 42.6961 )
+
+[node name="StarMarker10" parent="Fish/Axis/StarMarkers" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.3518, 20.1012 )
+
+[node name="StarMarker11" parent="Fish/Axis/StarMarkers" index="10" instance=ExtResource( 2 )]
+position = Vector2( 104.38, -4.87209 )
+
+[node name="StarMarker12" parent="Fish/Axis/StarMarkers" index="11" instance=ExtResource( 2 )]
+position = Vector2( 78.8116, 43.2908 )
+
+[node name="Shape" parent="Fish/Axis/Area" index="0"]
+position = Vector2( -5.66968, 1.88989 )
+polygon = PoolVector2Array( -123.53, 39.9971, -53.0303, -71.0029, 27.4697, -60.5029, 75.9697, -16.0029, 139.47, -31.0029, 109.97, 25.4971, 111.47, 72.4971, 58.9697, 48.4971, 15.4697, 74.9971, -66.5303, 70.4971 )
+
+[node name="Silhouette" parent="Fish/Axis" index="2"]
+texture = ExtResource( 7 )
+
+[node name="Skeleton" parent="Fish/Axis" index="3"]
+texture = ExtResource( 6 )
+
+[node name="Art" parent="Fish/Axis" index="4"]
+texture = ExtResource( 5 )
+
+[node name="Mermaid" parent="." instance=ExtResource( 1 )]
+position = Vector2( 305.335, 434.337 )
+
+[node name="AnimationPlayer" parent="Mermaid" index="0"]
+anims/silhouette_fade_in = SubResource( 4 )
+anims/silhouette_to_skeleton = SubResource( 5 )
+anims/skeleton_to_art = SubResource( 6 )
+
+[node name="StarMarker" parent="Mermaid/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( -193.525, -191.043 )
+
+[node name="StarMarker2" parent="Mermaid/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( -54.6272, -218.029 )
+
+[node name="StarMarker3" parent="Mermaid/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( -99.0744, -147.389 )
+
+[node name="StarMarker4" parent="Mermaid/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( -80.0256, 10.5571 )
+
+[node name="StarMarker5" parent="Mermaid/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( 91.4137, 124.056 )
+
+[node name="StarMarker6" parent="Mermaid/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( 156.497, 92.3082 )
+
+[node name="StarMarker7" parent="Mermaid/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( 177.927, -58.4949 )
+
+[node name="StarMarker8" parent="Mermaid/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( 227.93, -7.69809 )
+
+[node name="StarMarker9" parent="Mermaid/Axis/StarMarkers" index="8" instance=ExtResource( 2 )]
+position = Vector2( 58.8721, -48.9706 )
+
+[node name="StarMarker10" parent="Mermaid/Axis/StarMarkers" index="9" instance=ExtResource( 2 )]
+position = Vector2( 196.976, 101.039 )
+
+[node name="StarMarker11" parent="Mermaid/Axis/StarMarkers" index="10" instance=ExtResource( 2 )]
+position = Vector2( 120.781, 210.569 )
+
+[node name="StarMarker12" parent="Mermaid/Axis/StarMarkers" index="11" instance=ExtResource( 2 )]
+position = Vector2( 106.494, 78.8151 )
+
+[node name="StarMarker13" parent="Mermaid/Axis/StarMarkers" index="12" instance=ExtResource( 2 )]
+position = Vector2( -80.0255, 198.664 )
+
+[node name="Shape" parent="Mermaid/Axis/Area" index="0"]
+position = Vector2( 11, 2 )
+polygon = PoolVector2Array( -153.283, 211.108, -28.692, 113.889, -123.079, 35.547, -153.283, -131.519, -239.176, -172.105, -218.411, -222.131, -69.2786, -248.559, -36.243, -223.075, -67.3909, -133.407, -34.3553, -2.20801, 62.8638, 36.4908, 84.5729, 19.5011, 15.67, -20.1416, 10.9507, -89.0444, 157.251, -102.259, 250.695, -11.6468, 237.481, 18.5572, 192.175, 35.547, 192.175, 54.4244, 217.659, 85.5723, 180.848, 198.837, 106.282, 239.424, 75.1342, 219.602, 71.3586, 183.735, 90.2361, 155.419, 43.9863, 154.475, -67.3909, 226.21, -135.35, 221.49 )
+
+[node name="Silhouette" parent="Mermaid/Axis" index="2"]
+texture = ExtResource( 9 )
+
+[node name="Skeleton" parent="Mermaid/Axis" index="3"]
+texture = ExtResource( 12 )
+
+[node name="Art" parent="Mermaid/Axis" index="4"]
+texture = ExtResource( 10 )
+
+[node name="Catfish" parent="." instance=ExtResource( 1 )]
+position = Vector2( 727.645, 468.12 )
+
+[node name="AnimationPlayer" parent="Catfish" index="0"]
+anims/silhouette_fade_in = SubResource( 7 )
+anims/silhouette_to_skeleton = SubResource( 8 )
+anims/skeleton_to_art = SubResource( 9 )
+
+[node name="StarMarker" parent="Catfish/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( -74.5898, -118.771 )
+
+[node name="StarMarker2" parent="Catfish/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( -61.9906, -45.6952 )
+
+[node name="StarMarker3" parent="Catfish/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( -0.254517, -60.1843 )
+
+[node name="StarMarker4" parent="Catfish/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( 53.2921, -73.4135 )
+
+[node name="StarMarker5" parent="Catfish/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( 74.7108, 8.48138 )
+
+[node name="StarMarker6" parent="Catfish/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( -24.8229, 76.5171 )
+
+[node name="StarMarker7" parent="Catfish/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( -24.8229, 113.055 )
+
+[node name="StarMarker8" parent="Catfish/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( -67.6602, 65.1778 )
+
+[node name="Shape" parent="Catfish/Axis/Area" index="0"]
+position = Vector2( -3.77966, -5.66965 )
+polygon = PoolVector2Array( -22.2164, 144.832, -97.1697, 62.1009, -25.752, 48.6659, 37.1805, 7.65369, 27.2811, -21.3377, -56.1575, 0.582611, -104.241, -55.9859, -61.8144, -72.2494, -107.069, -125.282, -81.6134, -147.91, 11.7247, -86.3915, 90.9207, -96.291, 104.356, 50.7872, 3.23944, 92.5065, -8.78137, 157.56 )
+
+[node name="Silhouette" parent="Catfish/Axis" index="2"]
+texture = ExtResource( 11 )
+
+[node name="Skeleton" parent="Catfish/Axis" index="3"]
+texture = ExtResource( 13 )
+
+[node name="Art" parent="Catfish/Axis" index="4"]
+texture = ExtResource( 21 )
+
+[node name="Octopus" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1263.69, 515.424 )
+
+[node name="AnimationPlayer" parent="Octopus" index="0"]
+anims/silhouette_fade_in = SubResource( 10 )
+anims/silhouette_to_skeleton = SubResource( 11 )
+anims/skeleton_to_art = SubResource( 12 )
+
+[node name="StarMarker" parent="Octopus/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( 167.964, -69.5532 )
+
+[node name="StarMarker2" parent="Octopus/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( 10.3944, -28.5256 )
+
+[node name="StarMarker3" parent="Octopus/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( -69.877, 44.6106 )
+
+[node name="StarMarker4" parent="Octopus/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( -53.8227, 107.044 )
+
+[node name="StarMarker5" parent="Octopus/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( -0.308411, 89.8004 )
+
+[node name="StarMarker6" parent="Octopus/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( 6.23224, 32.1239 )
+
+[node name="StarMarker7" parent="Octopus/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( 104.342, 101.693 )
+
+[node name="StarMarker8" parent="Octopus/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( 138.829, 14.8804 )
+
+[node name="StarMarker9" parent="Octopus/Axis/StarMarkers" index="8" instance=ExtResource( 2 )]
+position = Vector2( 82.3415, -14.2552 )
+
+[node name="StarMarker10" parent="Octopus/Axis/StarMarkers" index="9" instance=ExtResource( 2 )]
+position = Vector2( 112.072, 82.6652 )
+
+[node name="StarMarker11" parent="Octopus/Axis/StarMarkers" index="10" instance=ExtResource( 2 )]
+position = Vector2( 214.938, 76.7191 )
+
+[node name="StarMarker12" parent="Octopus/Axis/StarMarkers" index="11" instance=ExtResource( 2 )]
+position = Vector2( 240.506, 33.9077 )
+
+[node name="StarMarker13" parent="Octopus/Axis/StarMarkers" index="12" instance=ExtResource( 2 )]
+position = Vector2( 208.397, 23.7994 )
+
+[node name="StarMarker14" parent="Octopus/Axis/StarMarkers" index="13" instance=ExtResource( 2 )]
+position = Vector2( -137.662, 45.7997 )
+
+[node name="StarMarker15" parent="Octopus/Axis/StarMarkers" index="14" instance=ExtResource( 2 )]
+position = Vector2( -203.663, 93.3679 )
+
+[node name="StarMarker16" parent="Octopus/Axis/StarMarkers" index="15" instance=ExtResource( 2 )]
+position = Vector2( -228.042, 70.1783 )
+
+[node name="StarMarker17" parent="Octopus/Axis/StarMarkers" index="16" instance=ExtResource( 2 )]
+position = Vector2( -193.555, 55.3132 )
+
+[node name="StarMarker18" parent="Octopus/Axis/StarMarkers" index="17" instance=ExtResource( 2 )]
+position = Vector2( -121.013, 19.0424 )
+
+[node name="StarMarker19" parent="Octopus/Axis/StarMarkers" index="18" instance=ExtResource( 2 )]
+position = Vector2( -166.797, 48.178 )
+
+[node name="StarMarker20" parent="Octopus/Axis/StarMarkers" index="19" instance=ExtResource( 2 )]
+position = Vector2( -230.42, 18.4478 )
+
+[node name="StarMarker21" parent="Octopus/Axis/StarMarkers" index="20" instance=ExtResource( 2 )]
+position = Vector2( -194.744, -42.7963 )
+
+[node name="StarMarker22" parent="Octopus/Axis/StarMarkers" index="21" instance=ExtResource( 2 )]
+position = Vector2( -172.149, -16.6338 )
+
+[node name="Shape" parent="Octopus/Axis/Area" index="0"]
+position = Vector2( -0.943909, 19.8214 )
+polygon = PoolVector2Array( -224.432, 108.41, -276.758, -13.2119, -197.562, -100.893, -136.044, -21.6972, -84.425, -20.9901, 47.0967, -119.985, 189.225, -112.207, 200.539, -32.3038, 263.471, -5.43378, 245.794, 80.8333, 158.113, 89.3185, 98.0085, 113.36, 35.0759, 100.632, -36.3418, 127.502, -83.718, 92.147, -122.609, 72.348 )
+
+[node name="Silhouette" parent="Octopus/Axis" index="2"]
+texture = ExtResource( 22 )
+
+[node name="Skeleton" parent="Octopus/Axis" index="3"]
+texture = ExtResource( 4 )
+
+[node name="Art" parent="Octopus/Axis" index="4"]
+texture = ExtResource( 8 )
+
+[node name="SchoolOfFish" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1772.44, 430.52 )
+
+[node name="AnimationPlayer" parent="SchoolOfFish" index="0"]
+anims/silhouette_fade_in = SubResource( 13 )
+anims/silhouette_to_skeleton = SubResource( 14 )
+anims/skeleton_to_art = SubResource( 15 )
+
+[node name="StarMarker" parent="SchoolOfFish/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( -316.682, -335.41 )
+
+[node name="StarMarker2" parent="SchoolOfFish/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( -260.559, -179.387 )
+
+[node name="StarMarker3" parent="SchoolOfFish/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( -236.988, -227.653 )
+
+[node name="StarMarker4" parent="SchoolOfFish/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( -230.253, -199.592 )
+
+[node name="StarMarker5" parent="SchoolOfFish/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( -212.294, -116.529 )
+
+[node name="StarMarker6" parent="SchoolOfFish/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( -222.396, -58.1614 )
+
+[node name="StarMarker7" parent="SchoolOfFish/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( -150.558, -129.999 )
+
+[node name="StarMarker8" parent="SchoolOfFish/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( -71.9857, -22.2427 )
+
+[node name="StarMarker9" parent="SchoolOfFish/Axis/StarMarkers" index="8" instance=ExtResource( 2 )]
+position = Vector2( -129.231, -0.915894 )
+
+[node name="StarMarker10" parent="SchoolOfFish/Axis/StarMarkers" index="9" instance=ExtResource( 2 )]
+position = Vector2( -118.007, 47.35 )
+
+[node name="StarMarker11" parent="SchoolOfFish/Axis/StarMarkers" index="10" instance=ExtResource( 2 )]
+position = Vector2( -164.027, 31.6355 )
+
+[node name="StarMarker12" parent="SchoolOfFish/Axis/StarMarkers" index="11" instance=ExtResource( 2 )]
+position = Vector2( -6.88281, 150.616 )
+
+[node name="StarMarker13" parent="SchoolOfFish/Axis/StarMarkers" index="12" instance=ExtResource( 2 )]
+position = Vector2( 136.792, 207.862 )
+
+[node name="StarMarker14" parent="SchoolOfFish/Axis/StarMarkers" index="13" instance=ExtResource( 2 )]
+position = Vector2( 244.549, 171.943 )
+
+[node name="StarMarker15" parent="SchoolOfFish/Axis/StarMarkers" index="14" instance=ExtResource( 2 )]
+position = Vector2( -8.00537, 86.6361 )
+
+[node name="StarMarker16" parent="SchoolOfFish/Axis/StarMarkers" index="15" instance=ExtResource( 2 )]
+position = Vector2( -79.8429, 149.494 )
+
+[node name="StarMarker17" parent="SchoolOfFish/Axis/StarMarkers" index="16" instance=ExtResource( 2 )]
+position = Vector2( 43.6281, 234.801 )
+
+[node name="StarMarker18" parent="SchoolOfFish/Axis/StarMarkers" index="17" instance=ExtResource( 2 )]
+position = Vector2( 125.568, 261.74 )
+
+[node name="StarMarker19" parent="SchoolOfFish/Axis/StarMarkers" index="18" instance=ExtResource( 2 )]
+position = Vector2( -15.8624, 307.761 )
+
+[node name="StarMarker20" parent="SchoolOfFish/Axis/StarMarkers" index="19" instance=ExtResource( 2 )]
+position = Vector2( -41.6791, 101.228 )
+
+[node name="Shape" parent="SchoolOfFish/Axis/Area" index="0"]
+position = Vector2( -60.5446, 47.0901 )
+polygon = PoolVector2Array( 2.28125, 301.23, -42.9086, 141.877, -79.7739, 40.794, -167.775, -59.0994, -210.587, -160.182, -251.02, -224.399, -279.397, -422.737, -183.359, -344.16, -136.531, -259.234, -65.0975, -191.77, -49.2236, -145.735, 11.8914, -103.669, 56.3386, -28.2675, 358.211, 106.248, 307.075, 183.546, 159.614, 284.629 )
+
+[node name="Silhouette" parent="SchoolOfFish/Axis" index="2"]
+texture = ExtResource( 23 )
+
+[node name="Skeleton" parent="SchoolOfFish/Axis" index="3"]
+texture = ExtResource( 16 )
+
+[node name="Art" parent="SchoolOfFish/Axis" index="4"]
+texture = ExtResource( 14 )
+
+[node name="Jellyfish" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2605.88, 486.54 )
+
+[node name="AnimationPlayer" parent="Jellyfish" index="0"]
+anims/silhouette_fade_in = SubResource( 16 )
+anims/silhouette_to_skeleton = SubResource( 17 )
+anims/skeleton_to_art = SubResource( 18 )
+
+[node name="StarMarker" parent="Jellyfish/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( 129.889, -144.896 )
+
+[node name="StarMarker2" parent="Jellyfish/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( 176.889, -179.896 )
+
+[node name="StarMarker3" parent="Jellyfish/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( 249.889, -147.896 )
+
+[node name="StarMarker4" parent="Jellyfish/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( 270.889, -88.8958 )
+
+[node name="StarMarker5" parent="Jellyfish/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( 201.889, 9.10419 )
+
+[node name="StarMarker6" parent="Jellyfish/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( 73.8894, 148.104 )
+
+[node name="StarMarker7" parent="Jellyfish/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( 5.8894, 150.104 )
+
+[node name="StarMarker8" parent="Jellyfish/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( -46.1106, 184.104 )
+
+[node name="StarMarker9" parent="Jellyfish/Axis/StarMarkers" index="8" instance=ExtResource( 2 )]
+position = Vector2( -87.1106, 80.1042 )
+
+[node name="StarMarker10" parent="Jellyfish/Axis/StarMarkers" index="9" instance=ExtResource( 2 )]
+position = Vector2( -159.111, 41.1042 )
+
+[node name="StarMarker11" parent="Jellyfish/Axis/StarMarkers" index="10" instance=ExtResource( 2 )]
+position = Vector2( -249.111, 77.1042 )
+
+[node name="Shape" parent="Jellyfish/Axis/Area" index="0"]
+polygon = PoolVector2Array( 15.0435, 56.6516, 92.4414, -82.0979, 79.2271, -170.822, 190.604, -231.23, 298.206, -167.047, 303.869, -44.3429, 245.349, -11.3073, 210.426, 77.4169, 146.242, 131.218, 97.1606, 201.064, -85.0071, 248.258, -147.303, 132.162, -301.154, 116.116, -271.894, 21.7283, -120.874, -16.0267, -26.4868, 31.1671, -26.4868, 31.1671 )
+
+[node name="Silhouette" parent="Jellyfish/Axis" index="2"]
+texture = ExtResource( 17 )
+
+[node name="Skeleton" parent="Jellyfish/Axis" index="3"]
+texture = ExtResource( 18 )
+
+[node name="Art" parent="Jellyfish/Axis" index="4"]
+texture = ExtResource( 15 )
+
+[node name="Ship" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3310.6, 375.788 )
+
+[node name="AnimationPlayer" parent="Ship" index="0"]
+anims/silhouette_fade_in = SubResource( 19 )
+anims/silhouette_to_skeleton = SubResource( 20 )
+anims/skeleton_to_art = SubResource( 21 )
+
+[node name="StarMarker" parent="Ship/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( -188.156, 191.018 )
+
+[node name="StarMarker2" parent="Ship/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( 241.747, 125.915 )
+
+[node name="StarMarker3" parent="Ship/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( 258.583, 215.712 )
+
+[node name="StarMarker4" parent="Ship/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( -94.9922, 146.12 )
+
+[node name="StarMarker5" parent="Ship/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( -68.0532, -172.66 )
+
+[node name="StarMarker6" parent="Ship/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( 101.438, -62.6584 )
+
+[node name="StarMarker7" parent="Ship/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( -71.4207, -122.149 )
+
+[node name="StarMarker8" parent="Ship/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( -395.812, -232.15 )
+
+[node name="StarMarker9" parent="Ship/Axis/StarMarkers" index="8" instance=ExtResource( 2 )]
+position = Vector2( 294.502, -43.5766 )
+
+[node name="StarMarker10" parent="Ship/Axis/StarMarkers" index="9" instance=ExtResource( 2 )]
+position = Vector2( 448.279, -215.313 )
+
+[node name="Shape" parent="Ship/Axis/Area" index="0"]
+polygon = PoolVector2Array( -266.026, 194.984, -150.113, 116.869, -116.095, -99.8378, -436.115, -223.31, -415.956, -266.147, -61.9185, -208.191, 174.947, -41.8814, 265.661, -83.4588, 449.609, -256.068, 487.407, -239.689, 353.855, -26.7624, 302.199, 252.94, -252.167, 221.442 )
+
+[node name="Silhouette" parent="Ship/Axis" index="2"]
+texture = ExtResource( 3 )
+
+[node name="Skeleton" parent="Ship/Axis" index="3"]
+texture = ExtResource( 19 )
+
+[node name="Art" parent="Ship/Axis" index="4"]
+texture = ExtResource( 20 )
+
+[node name="Shark" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2253.42, 241.005 )
+
+[node name="AnimationPlayer" parent="Shark" index="0"]
+anims/silhouette_fade_in = SubResource( 22 )
+anims/silhouette_to_skeleton = SubResource( 23 )
+anims/skeleton_to_art = SubResource( 24 )
+
+[node name="StarMarker" parent="Shark/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( 379.778, -31.3177 )
+
+[node name="StarMarker2" parent="Shark/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( 176.361, 30.1312 )
+
+[node name="StarMarker3" parent="Shark/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( 131.864, 150.91 )
+
+[node name="StarMarker4" parent="Shark/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( 76.7717, 7.88245 )
+
+[node name="StarMarker5" parent="Shark/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( 20.6201, -157.394 )
+
+[node name="StarMarker6" parent="Shark/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( -11.1638, -15.4258 )
+
+[node name="StarMarker7" parent="Shark/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( -272.851, 12.1203 )
+
+[node name="StarMarker8" parent="Shark/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( -324.765, 76.7476 )
+
+[node name="StarMarker9" parent="Shark/Axis/StarMarkers" index="8" instance=ExtResource( 2 )]
+position = Vector2( -393.63, -119.253 )
+
+[node name="StarMarker10" parent="Shark/Axis/StarMarkers" index="9" instance=ExtResource( 2 )]
+position = Vector2( -141.478, -3.77161 )
+
+[node name="Shape" parent="Shark/Axis/Area" index="0"]
+polygon = PoolVector2Array( -162.667, -49.3286, -22.8179, -65.2205, 8.966, -192.356, 122.329, -41.9123, 382.956, -52.5069, 111.734, 173.159, -41.8882, 62.9745, -228.354, 59.7961, -298.278, 96.8774, -390.452, -126.669, -321.586, -129.848 )
+
+[node name="Silhouette" parent="Shark/Axis" index="2"]
+texture = ExtResource( 26 )
+
+[node name="Skeleton" parent="Shark/Axis" index="3"]
+texture = ExtResource( 24 )
+
+[node name="Art" parent="Shark/Axis" index="4"]
+texture = ExtResource( 29 )
+
+[node name="Squid" parent="." instance=ExtResource( 1 )]
+position = Vector2( 893.32, 218.654 )
+
+[node name="AnimationPlayer" parent="Squid" index="0"]
+anims/silhouette_fade_in = SubResource( 25 )
+anims/silhouette_to_skeleton = SubResource( 26 )
+anims/skeleton_to_art = SubResource( 27 )
+
+[node name="StarMarker" parent="Squid/Axis/StarMarkers" index="0" instance=ExtResource( 2 )]
+position = Vector2( -194.518, -113.137 )
+
+[node name="StarMarker2" parent="Squid/Axis/StarMarkers" index="1" instance=ExtResource( 2 )]
+position = Vector2( -188.963, -59.1657 )
+
+[node name="StarMarker3" parent="Squid/Axis/StarMarkers" index="2" instance=ExtResource( 2 )]
+position = Vector2( -102.449, -101.232 )
+
+[node name="StarMarker4" parent="Squid/Axis/StarMarkers" index="3" instance=ExtResource( 2 )]
+position = Vector2( 19.7806, 58.3019 )
+
+[node name="StarMarker5" parent="Squid/Axis/StarMarkers" index="4" instance=ExtResource( 2 )]
+position = Vector2( 58.6719, 19.4106 )
+
+[node name="StarMarker6" parent="Squid/Axis/StarMarkers" index="5" instance=ExtResource( 2 )]
+position = Vector2( 92.0072, 82.1129 )
+
+[node name="StarMarker7" parent="Squid/Axis/StarMarkers" index="6" instance=ExtResource( 2 )]
+position = Vector2( 154.709, 74.9696 )
+
+[node name="StarMarker8" parent="Squid/Axis/StarMarkers" index="7" instance=ExtResource( 2 )]
+position = Vector2( 208.681, 108.305 )
+
+[node name="StarMarker9" parent="Squid/Axis/StarMarkers" index="8" instance=ExtResource( 2 )]
+position = Vector2( 175.346, 127.354 )
+
+[node name="StarMarker10" parent="Squid/Axis/StarMarkers" index="9" instance=ExtResource( 2 )]
+position = Vector2( -142.928, -79.802 )
+
+[node name="Shape" parent="Squid/Axis/Area" index="0"]
+polygon = PoolVector2Array( -181.304, -20.577, -207.733, -99.8625, -186.967, -127.235, -122.784, -107.413, -82.1974, -115.908, 216.067, 84.193, 207.572, 119.116, 143.389, 139.882, 116.96, 113.453, -13.2946, 68.1472 )
+
+[node name="Silhouette" parent="Squid/Axis" index="2"]
+texture = ExtResource( 27 )
+
+[node name="Skeleton" parent="Squid/Axis" index="3"]
+texture = ExtResource( 28 )
+
+[node name="Art" parent="Squid/Axis" index="4"]
+texture = ExtResource( 25 )
+
+[editable path="Fish"]
+[editable path="Mermaid"]
+[editable path="Catfish"]
+[editable path="Octopus"]
+[editable path="SchoolOfFish"]
+[editable path="Jellyfish"]
+[editable path="Ship"]
+[editable path="Shark"]
+[editable path="Squid"]
